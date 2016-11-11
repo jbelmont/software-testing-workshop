@@ -1,5 +1,4 @@
 # Code Craftsmanship Saturdays Fourth Session
-============================
 
 To view lecture notes for this course, please consult the
 [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
