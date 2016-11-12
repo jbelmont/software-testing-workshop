@@ -4,7 +4,8 @@
   "description": "Software Testing Exploration",
   "main": "index.js",
   "scripts": {
-    "unit-test": "tape unit-tests/program.test.js"
+    "unit:test": "tape unit-tests/program.test.js",
+    "unit:test:solution": "tape unit-tests/solution/solution.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Code-Craftsmanship-Saturdays/software-testing/issues"
   },
-  "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme"
+  "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
+  "devDependencies": {
+    "tape": "^4.6.2"
+  }
 }
