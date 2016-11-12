@@ -4,19 +4,16 @@
   "description": "Software Testing Exploration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "unit-test": "tape unit-tests/program.test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Code-Craftsmanship-Saturdays/software-testing.git"
   },
   "keywords": [
-    "Unit",
-    "Testing",
-    "Integration",
-    "Testing",
-    "End-to-End",
-    "Testing",
+    "Unit Testing",
+    "Integration Testing",
+    "End-to-End Testing",
     "Mocks",
     "Stubs",
     "Spies"
