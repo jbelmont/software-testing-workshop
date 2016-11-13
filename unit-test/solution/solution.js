@@ -6,6 +6,8 @@ require('../exercises/map/map');
 require('../exercises/filter/filter');
 // Load Array.prototype.concatAll function.
 require('../exercises/concatAll/concatAll');
+// Load Array.prototype.concatMap function.
+require('../exercises/concatMap/concatMap');
 
 test('Practice the concept of unit testing with simple tape library', nest => {
 
@@ -30,6 +32,22 @@ test('Practice the concept of unit testing with simple tape library', nest => {
             actual.concatAll(), 
             expected, 
             'Should flatten and return [1,2,3,4,5,6,7,8,9,10]'
+        );
+        assert.end();
+    });
+
+    nest.test('Unit test the Array.prototype.concatMap function', assert => {
+        const actual = [ 
+            ["my","name","is"], 
+            ["John","J","Rambo"], 
+            ["and","I","rock"] 
+        ];
+        const expected = ["my","name","is", "John","J","Rambo", "and","I","rock" ];
+
+        assert.deepEqual(
+            [1,2,3,4,5].concatMap((item,idx,arr) => actual[item]),
+            expected,
+            'Should return flatten list ["my","name","is", "John","J","Rambo", "and","I","rock" ]'
         );
         assert.end();
     });
