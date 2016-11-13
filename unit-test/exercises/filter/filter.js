@@ -1,7 +1,6 @@
 /**
- * Function takes a callback and an array and returns filtered new copy.
+ * Function takes a callback
  * @param fn => function
- * @param collection => Array
  */
 Array.prototype.customFilter = function(fn) {
 	let results = [];

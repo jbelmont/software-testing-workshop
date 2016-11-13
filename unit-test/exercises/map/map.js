@@ -1,7 +1,6 @@
 /**
- * Function takes a callback and an array and returns new copy of array.
+ * Function takes a callback.
  * @param fn => function
- * @param collection => Array
  */
 Array.prototype.customMap = function(fn) {
 	let results = [];
