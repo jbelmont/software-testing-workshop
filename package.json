@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "unit:test": "tape unit-test/program.test.js",
-    "unit:test:solution": "tape unit-test/solution/program.test.js"
+    "unit:test:solution": "tape unit-test/solution/program.test.js",
+    "integration:test": "tape integration-tests/program.test.js",
+    "integration:test:solution": "tape integration-tests/solution/program.test.js"
   },
   "repository": {
     "type": "git",
