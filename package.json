@@ -4,8 +4,8 @@
   "description": "Software Testing Exploration",
   "main": "index.js",
   "scripts": {
-    "unit:test": "tape unit-tests/program.test.js",
-    "unit:test:solution": "tape unit-tests/solution/solution.js"
+    "unit:test": "tape unit-test/program.test.js",
+    "unit:test:solution": "tape unit-test/solution/program.test.js"
   },
   "repository": {
     "type": "git",
