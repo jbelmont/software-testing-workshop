@@ -20,6 +20,8 @@ A unit test is an automated piece of code that invokes a unit of work in the sys
 A unit of work is a single logical functional use case in the system that can be invoked by some public interface (in most cases).
 A unit of work can span a single method, a whole class or multiple classes working together to achieve one single logical purpose that can be verified.
 
+Run the command `npm run unit:test` at root of folder in order to see if tests pass.
+
 ## Behavior Driven Development
 
 ....
