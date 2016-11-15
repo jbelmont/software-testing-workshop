@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
   "devDependencies": {
+    "nightmare": "^2.8.1",
     "supertest": "^2.0.1",
     "tape": "^4.6.2"
   },
