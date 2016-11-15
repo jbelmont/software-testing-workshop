@@ -29,5 +29,15 @@
   "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
   "devDependencies": {
     "tape": "^4.6.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.3.2",
+    "express": "^4.14.0",
+    "hbs": "^4.0.1",
+    "morgan": "^1.7.0",
+    "node-sass-middleware": "^0.10.0",
+    "serve-favicon": "^2.3.0"
   }
 }
