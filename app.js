@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
+const users = require('./users/users');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/api/v1/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
