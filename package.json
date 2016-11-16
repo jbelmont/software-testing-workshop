@@ -7,7 +7,8 @@
     "unit:test": "tape unit-test/program.test.js",
     "unit:test:solution": "tape unit-test/solution/program.test.js",
     "integration:test": "tape integration-tests/program.test.js",
-    "integration:test:solution": "tape integration-tests/solution/program.test.js"
+    "integration:test:solution": "tape integration-tests/solution/program.test.js",
+    "functional:test": "nightwatch -c nightwatch.json"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
   "devDependencies": {
     "nightmare": "^2.8.1",
+    "nightwatch": "^0.9.9",
     "supertest": "^2.0.1",
     "tape": "^4.6.2"
   },
