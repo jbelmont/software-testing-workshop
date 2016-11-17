@@ -8,7 +8,8 @@
     "unit:test:solution": "tape unit-test/solution/program.test.js",
     "integration:test": "tape integration-tests/program.test.js",
     "integration:test:solution": "tape integration-tests/solution/program.test.js",
-    "functional:test": "nightwatch -c nightwatch.json"
+    "functional:test": "nightwatch -c nightwatch.json",
+    "start": "PORT=3000 node bin/www"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "morgan": "^1.7.0",
     "nano": "^6.2.0",
     "node-sass-middleware": "^0.10.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "winston": "^2.3.0"
   }
 }
