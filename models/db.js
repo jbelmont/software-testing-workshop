@@ -7,21 +7,29 @@ const users = require('./users')["users"];
 
 function createDbConnection() {
     return new Promise((resolve, reject) => {
-        nano.db.create('softwareTesting', function(err, body) {
+        nano.db.create('softwaretesting', function(err, body) {
             if (!err) {
-                const softwareTesting = nano.use('softwareTesting');
+                const softwareTesting = nano.use('softwaretesting');
                 return insertInitialDocument(softwareTesting)
-                .then(() => {
-                    nano.db.get('users', function(err, body) {
-                        if (!err) {
-                            resolve(body);
-                        }
-                        reject(err);
+                    .then(() => {
+                        resolve(retrieveDocument({ dbName: softwareTesting, name: 'users'}));
                     });
-                });
-            } 
-            winston.log('error', 'CouchDB Create Database Error', {err});
-            reject(new Error('Failed to setup Db Connection'));
+            } else {
+                const softwareTesting = nano.use('softwaretesting');
+                resolve(retrieveDocument({ dbName: softwareTesting, name: 'users'}));
+            }
+        });
+    });
+}
+
+function retrieveDocument({dbName, name}) {
+    return new Promise((resolve, reject) => {
+        dbName.get(name, function(err, body) {
+            if (!err) {
+                winston.info(body);
+                resolve(body);
+            }
+            reject(err);
         });
     });
 }
@@ -29,20 +37,20 @@ function createDbConnection() {
 function insertInitialDocument(dbName) {
     return new Promise((resolve, reject) => {
         dbName.insert(users, 'users', function(err, body, header) {
-            if (err) {
-                winston.log('error', 'Database Connection Error', {
-                    err: err["message"]
-                });
-                resolve(users);
+            if (!err) {
+                winston.info(`Created users table: ${users}`);
+                resolve(body);
             }
-            winston.info(`Created users table: ${users}`);
-            reject(new Error('Failed to Insert document'))
+            winston.log('error', 'Database Connection Error', {
+                err: err
+            });
+            reject(users);
         });
     });
 }
 
 function dbActions() {
-    return createDbConnection.then(users);
+    return createDbConnection();
 }
 
 exports.dbActions = dbActions;

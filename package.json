@@ -9,7 +9,7 @@
     "integration:test": "tape integration-tests/program.test.js",
     "integration:test:solution": "tape integration-tests/solution/program.test.js",
     "functional:test": "nightwatch -c nightwatch.json",
-    "start": "PORT=3000 node bin/www"
+    "start": "gulp start"
   },
   "repository": {
     "type": "git",
@@ -30,21 +30,48 @@
   },
   "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "chai": "^3.5.0",
+    "eslint": "^3.10.2",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-watch": "^2.1.14",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^3.1.2",
     "nightmare": "^2.8.1",
     "nightwatch": "^0.9.9",
+    "node-sass": "^3.13.0",
+    "run-sequence": "^1.2.2",
+    "sass-loader": "^4.0.2",
+    "sinon": "^1.17.6",
+    "style-loader": "^0.13.1",
     "supertest": "^2.0.1",
-    "tape": "^4.6.2"
+    "tape": "^4.6.2",
+    "webpack": "^1.13.3"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "debug": "^2.3.2",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "hbs": "^4.0.1",
+    "jsonwebtoken": "^7.1.9",
     "morgan": "^1.7.0",
     "nano": "^6.2.0",
     "node-sass-middleware": "^0.10.0",
+    "object-assign": "^4.1.0",
+    "request": "^2.78.0",
     "serve-favicon": "^2.3.0",
+    "vue": "^2.0.7",
     "winston": "^2.3.0"
   }
 }
