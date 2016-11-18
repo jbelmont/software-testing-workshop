@@ -1,7 +1,7 @@
 const test = require('tape');
 const request = require('supertest');
 
-const app = require('../../app');
+const app = require('../../build/dev-server');
 
 test('Practice Integration Testing with a simple Node/Express API', nest => {
 
