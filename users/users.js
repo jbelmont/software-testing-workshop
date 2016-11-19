@@ -17,4 +17,8 @@ router.get('/badMofos', (req, res, next) => {
         });
 });
 
+router.get('/spiceGirls', (req, res, next) => {
+    
+});
+
 module.exports = router;

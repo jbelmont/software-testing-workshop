@@ -8,7 +8,7 @@
     "unit:test:solution": "NODE_ENV=testing tape unit-test/solution/program.test.js",
     "integration:test": "NODE_ENV=testing tape integration-tests/program.test.js",
     "integration:test:solution": "NODE_ENV=testing tape integration-tests/solution/program.test.js",
-    "functional:test": "NODE_ENV=testing nightwatch -c nightwatch.json",
+    "functional:test": "node functional-tests/nightwatch.runner.js",
     "start": "gulp start",
     "lint": "eslint --ext .js,.vue src",
     "dev": "node bin/www",

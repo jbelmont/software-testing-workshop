@@ -5,18 +5,18 @@ const winston = require('winston');
 
 const users = require('./users')["users"];
 
-function createDbConnection() {
+function createDbConnection({ dbName = 'softwaretesting', name = 'users' } = {}) {
     return new Promise((resolve, reject) => {
-        nano.db.create('softwaretesting', function(err, body) {
+        nano.db.create(dbName, function(err, body) {
             if (!err) {
-                const softwareTesting = nano.use('softwaretesting');
-                return insertInitialDocument(softwareTesting)
+                const couchDBName = nano.use(dbName);
+                return insertInitialDocument({ dbName, name })
                     .then(() => {
-                        resolve(retrieveDocument({ dbName: softwareTesting, name: 'users'}));
+                        resolve(retrieveDocument({ dbName: couchDBName , name }));
                     });
             } else {
-                const softwareTesting = nano.use('softwaretesting');
-                resolve(retrieveDocument({ dbName: softwareTesting, name: 'users'}));
+                const db = nano.use(dbName);
+                resolve(retrieveDocument({ dbName: db, name }));
             }
         });
     });
@@ -34,16 +34,14 @@ function retrieveDocument({dbName, name}) {
     });
 }
 
-function insertInitialDocument(dbName) {
+function insertInitialDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
-        dbName.insert(users, 'users', function(err, body, header) {
+        dbName.insert(users, name, function(err, body, header) {
             if (!err) {
-                winston.info(`Created users table: ${users}`);
+                winston.info(`Created ${name} table: ${users}`);
                 resolve(body);
             }
-            winston.log('error', 'Database Connection Error', {
-                err: err
-            });
+            winston.log('error', 'Database Connection Error', {err});
             reject(users);
         });
     });
