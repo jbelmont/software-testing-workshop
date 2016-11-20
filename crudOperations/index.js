@@ -49,7 +49,7 @@ router.delete('/deleteDocument', (req, res, next) => {
             name
         })
         .then(body => {
-            res.status(statusCode).send(body);
+            res.status(removed).send(body);
         })
         .catch(err => {
             res.status(gone).send(err);

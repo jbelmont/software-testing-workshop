@@ -51,7 +51,7 @@ test('Practice Integration Testing with a Restful API', nest => {
             });
     });
 
-    nest.test('POST request to /api/v1/couch/insertDocument', assert => {
+    nest.test('POST request to /api/v1/couch/insertDocument that checks Update Conflict', assert => {
         const conflict = statusCodes["conflict"];
         request(app)
             .post('/api/v1/couch/insertDocument')
@@ -77,7 +77,42 @@ test('Practice Integration Testing with a Restful API', nest => {
     });
 
     nest.test('Delete request to /api/v1/couch/deleteDocument', assert => {
-        
+        const deleted = statusCodes["delete"];
+        request(app)
+            .del('/api/v1/couch/deleteDocument')
+            .set({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+            .send({
+                "name": "spicegirls"
+            })
+            .expect(res => {
+                assert.equal(res.status, deleted);
+            })
+            .end((err, res) => {
+                assert.end();
+            })
+    });
+
+    nest.test('Delete request to /api/v1/couch/deleteDocument', assert => {
+        const gone = statusCodes["gone"];
+        request(app)
+            .del('/api/v1/couch/deleteDocument')
+            .set({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+            .send({
+                "name": "spicegirls"
+            })
+            .expect(res => {
+                assert.equal(res.status, gone);
+                assert.equal(res.body.message, "deleted");
+            })
+            .end((err, res) => {
+                assert.end();
+            })
     });
 
 });

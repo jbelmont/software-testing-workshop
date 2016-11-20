@@ -20,10 +20,8 @@ function updateDocument({dbName, name, body}) {
     return new Promise((resolve, reject) => {
         dbName.insert(body, name, (err, body, header) => {
             if (!err) {
-                winston.info(`Created ${name} document`);
                 resolve(body);
             } else {
-                winston.log('error', 'Database Connection Error', {err});
                 reject(err);
             }
         });
@@ -34,7 +32,6 @@ function retrieveDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
         dbName.get(name, (err, body) => {
             if (!err) {
-                winston.info(body);
                 resolve(body);
             }
             reject(err);
@@ -43,24 +40,21 @@ function retrieveDocument({dbName, name}) {
 }
 
 function deleteDocument({dbName, name}) {
-    return new Promise((resolve, reject) => {
-        const dbName = nano.use(dbName);
-        return retrieveDocument({dbName, name})
-        .then((err, body) => {
-            if (!err) {
+    const couchDBName = nano.use(dbName);
+    return retrieveDocument({dbName: couchDBName, name})
+        .then(body => {
+            if (body) {
                 const {
                     _rev
                 } = body;
-                dbName.destroy(name, _rev, (err, body) => {
+                couchDBName.destroy(name, _rev, (err, body) => {
                     if (!err) {
-                        resolve(body);
+                        return body;
                     }
-                    reject(err);
+                    throw err;
                 });
             }
-            reject(err);
         });
-    });
 }
 
 exports.updateDocument = insertDocument;
