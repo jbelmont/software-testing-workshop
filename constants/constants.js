@@ -1,5 +1,6 @@
 module.exports = {
     statusCodes: {
+        ok: 200,
         delete: 204,
         create: 201,
         badRequest: 400,

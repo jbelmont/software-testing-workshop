@@ -22,9 +22,10 @@ function updateDocument({dbName, name, body}) {
             if (!err) {
                 winston.info(`Created ${name} document`);
                 resolve(body);
+            } else {
+                winston.log('error', 'Database Connection Error', {err});
+                reject(err);
             }
-            winston.log('error', 'Database Connection Error', {err});
-            reject(err);
         });
     });
 }
