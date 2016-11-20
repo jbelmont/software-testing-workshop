@@ -8,8 +8,8 @@ and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.
 # Setup instructions
 ### 1. Install node.js via [Node.js](https://nodejs.org/en/download/)
 ### 2. Install couchdb via [CouchDB](http://couchdb.apache.org/)
-### 3. 
-### 2. Run `npm install` on root level of folder.
+### 3. Run `npm install` on root level of folder.
+### 4. Run `npm run` to see all the scripts available
 
 # Assignments
 
@@ -17,7 +17,7 @@ Each assignment folder has several exercise files.
 Read the instructions.md file in order to complete the exercises.
 Some assignments may or may not have a program.js file that you will test.
 Each assignment will have a file called program.test.js.
-program.test.js will be where most of the logic exists per each test.
+program.test.js will be where most of the logic exists for each test.
 
 ## Unit Testing
 
@@ -25,19 +25,21 @@ A unit test is an automated piece of code that invokes a unit of work in the sys
 A unit of work is a single logical functional use case in the system that can be invoked by some public interface (in most cases).
 A unit of work can span a single method, a whole class or multiple classes working together to achieve one single logical purpose that can be verified.
 
+`cd unit-test`
+open `program.test.js`
+Read `instructions.md` in the folder
 Run the command `npm run unit:test` at root of folder in order to see if tests pass.
-Run the command `npm run unit:test:solution` to see the solution output if you want.
+Run the command `npm run unit:test:solution` at root of folder to see the solution output if you want.
+
+## Integration Testing
+
+
 
 ## Behavior Driven Development
 
 ....
 
 ## Test Driven Development
-
-
-## Integration Testing
-
-....
 
 
 ## Mocks

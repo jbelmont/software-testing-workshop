@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const index = require('../routes/index');
 const users = require('../users/users');
+const crud = require('../crudOperations/index');
 
 const app = express();
 
@@ -77,6 +78,7 @@ app.use(staticPath, express.static('./static'))
 
 app.use('/', index);
 app.use('/api/v1/users', users);
+app.use('/api/v1/couch', crud);
 
 /**
  * development error handler

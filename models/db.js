@@ -7,7 +7,7 @@ const users = require('./users')["users"];
 
 function createDbConnection({ dbName = 'softwaretesting', name = 'users' } = {}) {
     return new Promise((resolve, reject) => {
-        nano.db.create(dbName, function(err, body) {
+        nano.db.create(dbName, (err, body) => {
             if (!err) {
                 const couchDBName = nano.use(dbName);
                 return insertInitialDocument({ dbName, name })
@@ -24,7 +24,7 @@ function createDbConnection({ dbName = 'softwaretesting', name = 'users' } = {})
 
 function retrieveDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
-        dbName.get(name, function(err, body) {
+        dbName.get(name, (err, body) => {
             if (!err) {
                 winston.info(body);
                 resolve(body);
@@ -36,7 +36,7 @@ function retrieveDocument({dbName, name}) {
 
 function insertInitialDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
-        dbName.insert(users, name, function(err, body, header) {
+        dbName.insert(users, name, (err, body, header) => {
             if (!err) {
                 winston.info(`Created ${name} table: ${users}`);
                 resolve(body);
