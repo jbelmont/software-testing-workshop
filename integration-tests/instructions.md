@@ -52,3 +52,27 @@ Postman-Token: f3413251-c0de-69ac-99dd-992bcaaca3bd
 
 ### 2. Finish Integration Test for /api/v1/couch/insertDocument endpoint
 
+*The Super Test library api docs can be found here [SuperTest](https://visionmedia.github.io/superagent)*
+
+####Hints to complete the exercise:
+*1. Use post method in supertest*
+*2. Use set method in supertest and pass in object with Accept and Content-Type headers.*
+*3. Use send method in supertest and pass in object with a name and document property.*
+*4. Make sure to call expect in supertest to do assertion and use previous get request as example.*
+*5. Make sure to end supertest call with end function call or the integration test won't finish.*
+*6. Check statuscode with SuperTest property [Status](https://visionmedia.github.io/superagent/#response-status)*
+*7. Use assertion methods from Tape [Asserts](http://www.node-tap.org/asserts)*
+*8. CouchDB api documentation [Docs](https://wiki.apache.org/couchdb/HTTP_Document_API)*
+*9. CouchDB driver for node.js (nano) that I am using [Docs](https://github.com/dscape/nano)*
+
+#### Making Rest Call with Curl for Post Request
+```sh
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+	"name": "some-document",
+	"document": {
+		"values": {
+			"one": 1
+		}
+	}
+}' "http://localhost:3000/api/v1/couch/insertDocument"
+```
