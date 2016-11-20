@@ -37,10 +37,66 @@ router.post('/insertDocument', (req, res, next) => {
     }
 });
 
+router.post('/insertDocument/:name', (req, res, next) => {
+    const {
+        name
+    } = req.params;
+    const {
+        document
+    } = req.body;
+    if (name && document) {
+        const created = statusCodes["create"];
+        const conflict = statusCodes["conflict"];
+        return crud.updateDocument({ 
+            dbName: 'softwaretesting', 
+            name: name, 
+            body: document 
+        })
+        .then(body => {
+            res.status(created).send(body);
+        })
+        .catch(err => {
+            res.status(conflict).send(err);
+        });
+    } else {
+        const badRequest = statusCodes["badRequest"];
+        res.status(badRequest).send({
+            err: new Error(badRequest),
+            message: 'Missing name/document.'
+        });
+    }
+});
+
 router.delete('/deleteDocument', (req, res, next) => {
     const {
         name
     } = req.body;
+    if (name) {
+        const removed = statusCodes["delete"];
+        const gone = statusCodes["gone"];
+        return crud.deleteDocument({ 
+            dbName: 'softwaretesting', 
+            name
+        })
+        .then(body => {
+            res.status(removed).send(body);
+        })
+        .catch(err => {
+            res.status(gone).send(err);
+        });
+    } else {
+        const badRequest = statusCodes["badRequest"];
+        res.status(badRequest).send({
+            err: new Error(badRequest),
+            message: 'Missing name. You need to pass in a name property.'
+        });
+    }
+});
+
+router.delete('/deleteDocument/:name', (req, res, next) => {
+    const {
+        name
+    } = req.params;
     if (name) {
         const removed = statusCodes["delete"];
         const gone = statusCodes["gone"];

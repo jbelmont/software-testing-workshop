@@ -8,7 +8,7 @@ To view lecture notes for this course, please consult the [github-pages](https:/
 * `cd integration-tests`
 ### II. Using text editor of your choice open program.test.js and complete each TODO block.
 
-### 1. Finish Integration test for the /api/v1/users/badMofos route:
+### 1. Finish Integration test for the /api/v1/users/badMofos endpoint:
 
 #### Inspect the payload with the following curl command
 ```sh
@@ -48,7 +48,7 @@ Postman-Token: f3413251-c0de-69ac-99dd-992bcaaca3bd
 }
 ```
 
-
 * Add assertion to expect function call in line 16 using the payload information.
 
-### 2. 
+### 2. Finish Integration Test for /api/v1/couch/insertDocument endpoint
+

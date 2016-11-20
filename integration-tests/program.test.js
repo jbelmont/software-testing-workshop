@@ -7,7 +7,7 @@ test('Practice Integration Testing with a simple Node/Express API', nest => {
 
     // TODO: Make passing integration test by giving expected variable
     // GO to models/users.js and look at JSON structure.
-    nest.test('Test /api/v1/users/badMofos', assert => {
+    nest.test('Test /api/v1/users/badMofos endpoint', assert => {
         // const expected = ...;  TODO: add expected block here
         request(app)
             .get('/api/v1/users/badMofos')
@@ -20,6 +20,10 @@ test('Practice Integration Testing with a simple Node/Express API', nest => {
             });
     });
 
-    
+    // TODO: Finish integration test that makes a POST request to /api/v1/couch/insertDocument
+    nest.test('Test /api/v1/couch/insertDocument endpoint', assert => {
 
+    });
+
+    
 });

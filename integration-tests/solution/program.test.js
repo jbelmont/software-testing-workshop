@@ -115,4 +115,61 @@ test('Practice Integration Testing with a Restful API', nest => {
             })
     });
 
+    nest.test('POST request to /api/v1/couch/insertDocument', assert => {
+        const created = statusCodes["create"];
+        request(app)
+            .post('/api/v1/couch/insertDocument/movies')
+            .set({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+            .send({
+                "document": {
+                    "movies": ["Berry Gordy's Last Dragon", "Predator", "Rocky", "Rambo", "Dude Where's My Car"],
+                    "ratings": [
+                        {
+                            "rating": "5 Stars"
+                        },
+                        {
+                            "rating": "4 Stars"
+                        },
+                        {
+                            "rating": "5 Stars"
+                        },
+                        {
+                            "rating": "5 Stars"
+                        },
+                        {
+                            "rating": "2 Stars"
+                        }
+                    ]
+                }
+            })
+            .expect(res => {
+                assert.equal(res.status, created);
+                assert.ok(res.body);
+                assert.ok(res.body._id);
+                assert.ok(res.body._id, "movies");
+            })
+            .end((err, res) => {
+                assert.end();
+            });
+    });
+
+    nest.test('Delete request to /api/v1/couch/deleteDocument/:name', assert => {
+        const deleted = statusCodes["delete"];
+        request(app)
+            .del('/api/v1/couch/deleteDocument/movies')
+            .set({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+            .expect(res => {
+                assert.equal(res.status, deleted);
+            })
+            .end((err, res) => {
+                assert.end();
+            })
+    });
+
 });
