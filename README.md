@@ -25,7 +25,7 @@ A unit test is an automated piece of code that invokes a unit of work in the sys
 A unit of work is a single logical functional use case in the system that can be invoked by some public interface (in most cases).
 A unit of work can span a single method, a whole class or multiple classes working together to achieve one single logical purpose that can be verified.
 
-`cd unit-test`
+`Go to  unit-test folder`
 open `program.test.js`
 Read `instructions.md` in the folder
 Run the command `npm run unit:test` at root of folder in order to see if tests pass.
@@ -33,7 +33,13 @@ Run the command `npm run unit:test:solution` at root of folder to see the soluti
 
 ## Integration Testing
 
+Integration Testing is a level of software testing where individual units are combined and tested as a group.
+Integration tests ensure that various units work together correctly.
 
+`Go to integration-tests folder`
+Read `instructions.md` in the folder
+Run the command `npm run integration:test` at root of folder in order to see if tests pass.
+Run the command `npm run integration:test:solution` to see the solution output.
 
 ## Behavior Driven Development
 
