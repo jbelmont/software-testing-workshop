@@ -81,7 +81,6 @@ test('Practice Integration Testing with a Restful API', nest => {
         request(app)
             .del('/api/v1/couch/deleteDocument')
             .set({
-                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             })
             .send({
@@ -100,7 +99,6 @@ test('Practice Integration Testing with a Restful API', nest => {
         request(app)
             .del('/api/v1/couch/deleteDocument')
             .set({
-                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             })
             .send({

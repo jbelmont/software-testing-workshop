@@ -76,3 +76,18 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 	}
 }' "http://localhost:3000/api/v1/couch/insertDocument"
 ```
+
+### 3. Write an integration test removing the newly created document to /api/v1/couch/deleteDocument/:name
+
+*The Super Test library api docs and rest methods can be found here [SuperTest](https://visionmedia.github.io/superagent/#request-basics)*
+
+####Hints to complete the exercise:
+*1. Use appropriate supertest method to remove document.*
+*2. Make assertion with the returned status code (204) is usual status for DELETE request.*
+
+#### Making Rest Call with Curl for Delete Request
+```sh
+curl -X DELETE -H "Content-Type: application/json" -d '{
+	"name": "spicegirls"
+}' "http://localhost:3000/api/v1/couch/deleteDocument"
+```

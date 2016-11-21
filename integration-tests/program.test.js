@@ -25,8 +25,6 @@ test('Practice Integration Testing with a simple Node/Express API', nest => {
 
     });
 
-    // TODO: Write Integration test that tests /api/v1/couch/insertDocument endpoint and checks status Codes again when passing same document
-
     // TODO: Write Integration test that tests /api/v1/couch/deleteDocument endpoint
     
 });
