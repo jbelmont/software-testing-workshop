@@ -43,9 +43,6 @@ Run the command `npm run integration:test:solution` to see the solution output.
 
 ## Behavior Driven Development
 
-....
-
-## Test Driven Development
 
 
 ## Mocks
@@ -60,6 +57,8 @@ Run the command `npm run integration:test:solution` to see the solution output.
 ## Stubs
 
 .....
+
+## Test Driven Development
 
 ## Functional Tests (End-to-End Tests)
 
