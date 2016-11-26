@@ -3,7 +3,7 @@ const expect = chai.expect;
 const should = chai.should();
 
 require('../exercises/findIndex');
-require('../exercises/find');
+require('../exercises/findInput');
 require('../exercises/zip');
 
 describe('Practice Unit testing with BDD style library such as Mocha', () => {
