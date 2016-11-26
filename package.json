@@ -13,7 +13,7 @@
     "bdd:test:solution": "NODE_ENV=testing mocha bdd/solution/program.test.js",
     "start": "gulp start",
     "lint": "eslint --ext .js,.vue src",
-    "dev": "node bin/www",
+    "dev": "node --harmony bin/www",
     "build": "node build/build.js"
   },
   "repository": {

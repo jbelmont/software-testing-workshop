@@ -4,8 +4,9 @@ const should = chai.should();
 
 require('../exercises/findIndex');
 require('../exercises/find');
+require('../exercises/zip');
 
-describe('Practice Unit testing with BDD style library such as Mocha', function() {
+describe('Practice Unit testing with BDD style library such as Mocha', () => {
 
     it('Unit test the Array.prototype.findIdx function', done => {
         const numbers = [1,2,3,4,5];
@@ -50,6 +51,23 @@ describe('Practice Unit testing with BDD style library such as Mocha', function(
         };
         information.findInput(info => info["city"] === 'Raleigh').should.eql(expected);
         should.equal(information.findInput(info => info["population"] < 200000), undefined);
+        done();
+    });
+
+    it('Unit test the Array.prototype.zip function', done => {
+        const nestedArray = [
+            [1, 2, 3],
+            ["one", "two", "three"],
+            [true, false, true]
+        ];
+
+        const expected = [
+            [1, "one", true],
+            [2, "two", false],
+            [3, "three", true]
+        ];
+
+        expect(nestedArray.zip()).to.be.deep.equal(expected);
         done();
     });
     
