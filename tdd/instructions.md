@@ -16,7 +16,6 @@ Each test case fails initially: This ensures that the test really works and can 
 #### Exercise Instructions
 Requirements for First TDD Cycle
 Create a function that computes the average of a range of numbers.
-
+Please go to slide xyz in [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing)
 
 1. Add a failing test in program.test.js using either Mocha with Chai or with Tape from our previous exercies.
-

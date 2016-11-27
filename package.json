@@ -11,10 +11,15 @@
     "functional:test": "node functional-tests/nightwatch.runner.js",
     "bdd:test": "NODE_ENV=testing mocha bdd/program.test.js",
     "bdd:test:solution": "NODE_ENV=testing mocha bdd/solution/program.test.js",
+    "tdd:test:cycle1": "NODE_ENV=testing tape tdd/solution/tdd-cycle/cycle1/program.test.js",
+    "tdd:test:cycle1:silent": "npm run --silent tdd:test:cycle1",
+    "tdd:test:cycle2": "NODE_ENV=testing tape tdd/solution/tdd-cycle/cycle2/program.test.js",
+    "tdd:test:cycle2:silent": "npm run --silent tdd:test:cycle2",
     "start": "gulp start",
     "lint": "eslint --ext .js,.vue src",
     "dev": "node --harmony bin/www",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "mathjax:lib": "./scripts/markdownHelpers.sh"
   },
   "repository": {
     "type": "git",
