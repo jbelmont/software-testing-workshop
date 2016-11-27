@@ -3,6 +3,8 @@
 To view lecture notes for this course, please consult the
 [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
 
+[Rediscovery of TDD](https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development)
+
 Open program.test.js and go to each TODO block.
 
 ### 1. Unit Test the Map Function:

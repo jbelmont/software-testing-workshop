@@ -73,6 +73,7 @@
     "html-webpack-plugin": "^2.24.1",
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
+    "mathjax": "^2.7.0",
     "mocha": "^3.1.2",
     "nightmare": "^2.8.1",
     "nightwatch": "^0.9.9",
