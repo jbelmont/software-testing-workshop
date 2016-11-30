@@ -2,37 +2,30 @@
 
 const test = require('tape');
 const {join} = require('path');
-const supertest = require('supertest');
 const sinon = require('sinon');
-const proxyquire = require('proxyquire');
+const nock = require('nock');
+const request = require('supertest')('http://localhost:3000');
 const statusCodes = require('../../constants/constants')["statusCodes"];
 
-// globals
-let getBadMofos, request, app;
-
 test('setup', t => {
-    // A stub we can use to control conditionals
-    getBadMofos = sinon.stub();
-
-    app = require('express')();
-    // Bind a route to our application
-    proxyquire(join(__dirname, '../../users/users.js'), getBadMofos)(app);
-
-    // Get a supertest instance so we can make requests
-    request = supertest(app);
+    const payload = [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ];
+    // Mock the configuration request response
+    nock('http://localhost:3000/')
+      .get('/api/v1/users/badMofos')
+      .reply(200, payload);
     t.end();
 });
 
 test('Practice Testing with Mock', nest => {
-    getBadMofos.yields(null, [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ]);
     nest.test('Mock GET request to /api/v1/users/badMofos', assert => {
         const ok = statusCodes["ok"];
-        request(app)
-            .get('/badMofos')
+        request
+            .get('/api/v1/users/badMofos')
             .set('Accept', 'application/json')
             .expect(res => {
                 assert.equal(res.status, ok);
-                const soldiers = res.body.names
+                const soldiers = res.body
+                const expected = [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ];
                 assert.deepEqual(
                     soldiers, 
                     expected, 
@@ -43,12 +36,9 @@ test('Practice Testing with Mock', nest => {
                 assert.end();
             });
     });
-
-    
-
 });
 
 test('teardown', t => {
-  request.get.restore();
-  t.end();
+    // teardown if needed
+    t.end();
 });

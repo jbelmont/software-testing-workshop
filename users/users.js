@@ -8,7 +8,6 @@ const winston = require('winston');
 const users = require('../models/db');
 
 router.get('/badMofos', (req, res, next) => {
-    console.log('heeee');
     users.dbActions()
         .then(users => {
             res.send(users);
