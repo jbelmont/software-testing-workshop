@@ -7,12 +7,15 @@ const nock = require('nock');
 const request = require('supertest')('http://localhost:3000');
 const statusCodes = require('../../constants/constants')["statusCodes"];
 
+let spyBadMofos;
 test('setup', t => {
     const payload = [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ];
     // Mock the configuration request response
     nock('http://localhost:3000/')
       .get('/api/v1/users/badMofos')
       .reply(200, payload);
+
+    spyBadMofos = sinon.spy(request, "get");
     t.end();
 });
 
@@ -38,7 +41,22 @@ test('Practice Testing with Mock', nest => {
     });
 });
 
+test('Practice Using Spies with Sinon', nest => {
+    nest.test('Spy GET request to /api/v1/users/badMofos', assert => {
+        const ok = statusCodes["ok"];
+        request
+            .get('/api/v1/users/badMofos')
+            .set('Accept', 'application/json')
+            .expect(res => {
+                sinon.assert.calledTwice(spyBadMofos);
+            })
+            .end((err, res) => {
+                assert.end();
+            });
+    });
+});
+
 test('teardown', t => {
-    // teardown if needed
+    spyBadMofos.reset();
     t.end();
 });
