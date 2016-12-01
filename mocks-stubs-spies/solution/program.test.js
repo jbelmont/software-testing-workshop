@@ -6,11 +6,11 @@ const nock = require('nock');
 const request = require('supertest')('http://localhost:3000');
 const statusCodes = require('../../constants/constants')["statusCodes"];
 
-let body;
+let body, getScope, postScope;
 test('setup', t => {
     const payload = [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ];
     // Mock the configuration request response
-    nock('http://localhost:3000/')
+    getScope = nock('http://localhost:3000/')
       .get('/api/v1/users/badMofos')
       .reply(200, payload);
 
@@ -49,7 +49,7 @@ test('setup', t => {
             ]
         }
     };
-    nock('http://localhost:3000/')
+    postScope = nock('http://localhost:3000/')
         .post('/api/v1/couch/insertDocument/bucks', body)
         .reply(201, postPayload)
     t.end();
@@ -72,6 +72,7 @@ test('Practice Testing with Mock', nest => {
                 );
             })
             .end((err, res) => {
+                assert.equal(getScope.isDone(), true, "Get Request was executed with Nock Spy");
                 assert.end();
             });
     });
@@ -90,12 +91,13 @@ test('Practice Testing with Mock', nest => {
                 assert.equal(res.body.prices[0], 1);
             })
             .end((err, res) => {
+                assert.equal(postScope.isDone(), true, "POST Request was executed with Nock Spy");
                 assert.end();
             });
     });
 });
 
 test('teardown', t => {
-    // cleanup
+    nock.cleanAll();
     t.end();
 });
