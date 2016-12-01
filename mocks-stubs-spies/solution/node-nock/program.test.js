@@ -4,7 +4,7 @@ const test = require('tape');
 const {join} = require('path');
 const nock = require('nock');
 const request = require('supertest')('http://localhost:3000');
-const statusCodes = require('../../constants/constants')["statusCodes"];
+const statusCodes = require('../../../constants/constants')["statusCodes"];
 
 let getScope, postScope, postScope2, deleteScope, deleteScope2, body, body2, body3;
 test('setup', t => {
