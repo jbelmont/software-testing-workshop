@@ -2,12 +2,11 @@
 
 const test = require('tape');
 const {join} = require('path');
-const sinon = require('sinon');
 const nock = require('nock');
 const request = require('supertest')('http://localhost:3000');
 const statusCodes = require('../../constants/constants')["statusCodes"];
 
-let spyBadMofos;
+let body;
 test('setup', t => {
     const payload = [ 'John J Rambo', 'Conan The Barbarian', 'Billy Jack' ];
     // Mock the configuration request response
@@ -15,7 +14,44 @@ test('setup', t => {
       .get('/api/v1/users/badMofos')
       .reply(200, payload);
 
-    spyBadMofos = sinon.spy(request, "get");
+    const postPayload = {
+        "_id":"movies",
+        "_rev":"1-5a778353b79bf977b259522b9bd06a88",
+        "prices":[1,2,3,4,5],
+        "ratings":[
+            {"saying":"1 buck"},
+            {"saying":"2 bucks"},
+            {"saying":"3 bucks"},
+            {"saying":"4 bucks"},
+            {"saying":"5 bucks"}
+        ]
+    };
+
+    body = {
+        "document": {
+            "prices": [1, 2, 3, 4, 5],
+            "ratings": [
+                {
+                    "saying": "1 buck"
+                },
+                {
+                    "saying": "2 bucks"
+                },
+                {
+                    "saying": "3 bucks"
+                },
+                {
+                    "saying": "4 bucks"
+                },
+                {
+                    "saying": "5 bucks"
+                }
+            ]
+        }
+    };
+    nock('http://localhost:3000/')
+        .post('/api/v1/couch/insertDocument/bucks', body)
+        .reply(201, postPayload)
     t.end();
 });
 
@@ -39,16 +75,19 @@ test('Practice Testing with Mock', nest => {
                 assert.end();
             });
     });
-});
 
-test('Practice Using Spies with Sinon', nest => {
-    nest.test('Spy GET request to /api/v1/users/badMofos', assert => {
-        const ok = statusCodes["ok"];
+    nest.test('Mock POST request to /api/v1/couch/insertDocument/:docname', assert => {
+        const created = statusCodes["create"];
         request
-            .get('/api/v1/users/badMofos')
-            .set('Accept', 'application/json')
+            .post('/api/v1/couch/insertDocument/bucks')
+            .set({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+            .send(body)
             .expect(res => {
-                sinon.assert.calledTwice(spyBadMofos);
+                assert.equal(res.status, created);
+                assert.equal(res.body.prices[0], 1);
             })
             .end((err, res) => {
                 assert.end();
@@ -57,6 +96,6 @@ test('Practice Using Spies with Sinon', nest => {
 });
 
 test('teardown', t => {
-    spyBadMofos.reset();
+    // cleanup
     t.end();
 });
