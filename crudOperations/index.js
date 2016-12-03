@@ -8,6 +8,31 @@ const winston = require('winston');
 const crud = require('../models/crudOperations');
 const statusCodes = require('../constants/constants')["statusCodes"];
 
+router.get('/retrieveDocument/:name', (req, res, next) => {
+    const name = req.params.name;
+    if (name) {
+        const ok = statusCodes["ok"];
+        const serverError = statusCodes["internalServerError"];
+        return crud.retrieveDocument({ 
+            dbName: 'softwaretesting', 
+            name: name
+        })
+        .then(body => {
+            res.status(ok).send(body);
+        })
+        .catch(err => {
+            res.status(serverError).send(err);
+        });
+    }
+    else {
+        const badRequest = statusCodes["badRequest"];
+        res.status(badRequest).send({
+            err: new Error(badRequest),
+            message: 'Missing name.'
+        });
+    }
+});
+
 router.post('/insertDocument', (req, res, next) => {
     const {
         name,

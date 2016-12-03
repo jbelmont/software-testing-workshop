@@ -29,8 +29,9 @@ function updateDocument({dbName, name, body}) {
 }
 
 function retrieveDocument({dbName, name}) {
+    const couchDBName = nano.use(dbName);
     return new Promise((resolve, reject) => {
-        dbName.get(name, (err, body) => {
+        couchDBName.get(name, (err, body) => {
             if (!err) {
                 resolve(body);
             }
@@ -57,5 +58,6 @@ function deleteDocument({dbName, name}) {
         });
 }
 
+exports.retrieveDocument = retrieveDocument;
 exports.updateDocument = insertDocument;
 exports.deleteDocument = deleteDocument;
