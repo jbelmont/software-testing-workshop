@@ -8,7 +8,7 @@ function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {
         const couchDBName = nano.use(dbName);
         return updateDocument({ dbName: couchDBName, name, body })
             .then(() => {
-                resolve(retrieveDocument({ dbName: couchDBName , name }));
+                resolve(retrieveDoc({ dbName: couchDBName , name }));
             })
             .catch(err => {
                 reject(err);
@@ -24,6 +24,17 @@ function updateDocument({dbName, name, body}) {
             } else {
                 reject(err);
             }
+        });
+    });
+}
+
+function retrieveDoc({dbName, name}) {
+    return new Promise((resolve, reject) => {
+        dbName.get(name, (err, body) => {
+            if (!err) {
+                resolve(body);
+            }
+            reject(err);
         });
     });
 }

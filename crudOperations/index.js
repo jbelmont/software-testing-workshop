@@ -63,6 +63,7 @@ router.post('/insertDocument', (req, res, next) => {
 });
 
 router.post('/insertDocument/:name', (req, res, next) => {
+    console.log(req.params);
     const {
         name
     } = req.params;
