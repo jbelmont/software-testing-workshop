@@ -32,7 +32,55 @@ A test spy is a function that records arguments, return value, the value of this
 Test spies are useful to test both callbacks and how certain functions/methods are used throughout the system under test.
 
 *Sinon has an assertion api that you can reference here [Sinon Assertions](http://sinonjs.org/docs/#assertions)*
+*You can use either Mocha or Tape.js here it is your choice which one you feel most comfortable with.*
 
 **Open program.test.js in `mocks-stubs-spies` folder**
+1. Stub the `retrieveDocument` function
+```javascript
+function retrieveDocument({dbName, name}) {
+    const couchDBName = nano.use(dbName);
+    return new Promise((resolve, reject) => {
+        couchDBName.get(name, (err, body) => {
+            if (!err) {
+                resolve(body);
+            }
+            reject(err);
+        });
+    });
+}
+```
 
-1. You can use either Mocha or Tape.js here it is your choice
+You don't need the implementation here but I included it here for your reference.
+Using Sinon check that the retrieveDocument stub is called once.
+Make an assertion that the payload and the expected response match.
+
+2. Stub the `updateDocument` function.
+
+```javascript
+function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {}) {
+    return new Promise((resolve, reject) => {
+        const couchDBName = nano.use(dbName);
+        return updateDoc({ dbName: couchDBName, name, body })
+            .then(() => {
+                resolve(retrieveDoc({ dbName: couchDBName , name }));
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}
+
+function updateDoc({dbName, name, body}) {
+    return new Promise((resolve, reject) => {
+        dbName.insert(body, name, (err, body, header) => {
+            if (!err) {
+                resolve(body);
+            } else {
+                reject(err);
+            }
+        });
+    });
+}
+```
+
+Again you don't need the implementation here but I added it in case you are curious.
