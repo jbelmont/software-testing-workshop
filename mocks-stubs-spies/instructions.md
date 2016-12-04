@@ -15,4 +15,24 @@ the object supplies non-deterministic results (e.g. the current time or the curr
 **The Object would have to include information and methods exclusively for testing purposes (and not for its actual task).**
 
 #### Sinon.js Mock via explanation [Sinon Mocks](http://sinonjs.org/docs/#mocks)
-Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations. A mock will fail your test if it is not used as expected.
+Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.
+A mock will fail your test if it is not used as expected.
+
+Sinon Documentation discusses when not to use Mocks.
+Mocks come with built-in expectations that may fail your test. Thus, they enforce implementation details.
+**The rule of thumb is: if you wouldn’t add an assertion for some specific call, don’t mock it. Use a stub instead.** 
+**In general you should never have more than one mock (possibly with several expectations) in a single test.**
+
+#### Sinon.js Stubs via explanation [Sinon Stubs](http://sinonjs.org/docs/#stubs)
+Test stubs are functions (spies) with pre-programmed behavior. They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.
+This is a key point here as well with stubs you get the full spy api but with Mocks you don't.
+
+#### Sinon.js Spies via explanation [Sinon Spies](http://sinonjs.org/docs/#spies)
+A test spy is a function that records arguments, return value, the value of this and exception thrown (if any) for all its calls.
+Test spies are useful to test both callbacks and how certain functions/methods are used throughout the system under test.
+
+*Sinon has an assertion api that you can reference here [Sinon Assertions](http://sinonjs.org/docs/#assertions)*
+
+**Open program.test.js in `mocks-stubs-spies` folder**
+
+1. You can use either Mocha or Tape.js here it is your choice

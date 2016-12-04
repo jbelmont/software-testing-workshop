@@ -25,6 +25,7 @@
     "tdd:cycle:final": "NODE_ENV=testing tape tdd/tdd-cycle/cyclefinal/program.test.js",
     "mock:nock:solution": "NODE_ENV=testing tape mocks-stubs-spies/solution/node-nock/program.test.js",
     "mock:sinon:solution": "NODE_ENV=testing mocha mocks-stubs-spies/solution/sinon/program.test.js",
+    "mock:sinon:tape:solution": "NODE_ENV=testing tape mocks-stubs-spies/solution/sinon/program.tape.test.js",
     "start": "gulp start",
     "lint": "eslint --ext .js,.vue src",
     "dev": "node --harmony bin/www",
