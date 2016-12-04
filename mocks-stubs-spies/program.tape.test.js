@@ -3,6 +3,7 @@
 const test = require('tape');
 const {join} = require('path');
 const sinon = require('sinon');
+const should = require('should');
 
 const statusCodes = require('../constants/constants')["statusCodes"];
 const DocOperations = require(join(__dirname, '../models/crudOperations'));
@@ -10,6 +11,7 @@ const DocOperations = require(join(__dirname, '../models/crudOperations'));
 let sandbox;
 let retrieveDocStub, insertDocStub, deleteDocStub;
 test('setup', t => {
+    sandbox = sinon.sandbox.create();
     // TODO: setup work here.
     t.end();
 });

@@ -34,8 +34,13 @@ Test spies are useful to test both callbacks and how certain functions/methods a
 *Sinon has an assertion api that you can reference here [Sinon Assertions](http://sinonjs.org/docs/#assertions)*
 *You can use either Mocha or Tape.js here it is your choice which one you feel most comfortable with.*
 
+#### Sinon has an assertion library that you can use but I would recommend using either chai.js assertion library or should.js
+* Chai.js documentation can be found here [Chai.js Assert](http://chaijs.com/api/assert/) // [Chai.js BDD](http://chaijs.com/api/bdd/)
+* Should.js Assertion library can be found here [Should.js](http://shouldjs.github.io/)
+
 **Open program.test.js in `mocks-stubs-spies` folder**
-1. Stub the `retrieveDocument` function
+
+####1. Stub the `retrieveDocument` function
 ```javascript
 function retrieveDocument({dbName, name}) {
     const couchDBName = nano.use(dbName);
@@ -54,7 +59,7 @@ You don't need the implementation here but I included it here for your reference
 Using Sinon check that the retrieveDocument stub is called once.
 Make an assertion that the payload and the expected response match.
 
-2. Stub the `updateDocument` function.
+####2. Stub the `updateDocument` function.
 
 ```javascript
 function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {}) {
@@ -83,4 +88,44 @@ function updateDoc({dbName, name, body}) {
 }
 ```
 
-Again you don't need the implementation here but I added it in case you are curious.
+*Again you don't need the implementation here because you are stubbing it out but I added it in case you are curious.*
+
+* Use sinon to make some assertions about the stubbed out function
+* Remember to use the setup function in tape or the before block in mocha to initialize the stub.
+
+####3. Stub out the `deleteDocument` function
+
+######Implementation Details
+```javascript
+function retrieveDoc({dbName, name}) {
+    return new Promise((resolve, reject) => {
+        dbName.get(name, (err, body) => {
+            if (!err) {
+                resolve(body);
+            }
+            reject(err);
+        });
+    });
+}
+
+function deleteDocument({dbName, name}) {
+    const couchDBName = nano.use(dbName);
+    return retrieveDoc({dbName: couchDBName, name})
+        .then(body => {
+            if (body) {
+                const {
+                    _rev
+                } = body;
+                couchDBName.destroy(name, _rev, (err, body) => {
+                    if (!err) {
+                        return body;
+                    }
+                    throw err;
+                });
+            }
+        });
+}
+```
+
+* Stub out the deleteDocument function by using sinon. 
+* Use chai assertions or use the should.js assertion library

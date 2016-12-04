@@ -62,18 +62,33 @@ The npm run commands will depend on the tdd cycle you are in but the first thing
 All the commands can be found in instructions.md
 
 
-## Mocks
+## Mocks // Spies // Stubs
 
-....
+###
+* Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations. 
+* A mock will fail your test if it is not used as expected. 
+* Mocks should only be used for the method under test. 
+* In every unit test, there should be one unit under test. 
+* If you want to control how your unit is being used and like stating expectations upfront (as opposed to asserting after the fact), use a mock.
+* [Mocks](http://sinonjs.org/docs/#mocks)
 
-## Spies
+###
+* Test stubs are functions (spies) with pre-programmed behavior. 
+* They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.
+* As spies, stubs can be either anonymous, or wrap existing functions. 
+* When wrapping an existing function with a stub, the original function is not called.
+* [Stubs](http://sinonjs.org/docs/#stubs)
 
-....
+###
+* A test spy is a function that records arguments, return value, the value of this and exception thrown (if any) for all its calls. 
+* A test spy can be an anonymous function or it can wrap an existing function.
+* Test spies are useful to test both callbacks and how certain functions/methods are used throughout the system under test. 
+* The following simplified example shows how to use spies to test how a function handles a callback
+* [Spies](http://sinonjs.org/docs/#spies)
 
-
-## Stubs
-
-.....
+Read `instructions.md` in the folder mock-stubs-spies
+Run the commands `npm run mock:sinon` to write tests in mocha and chai
+Run the commands `npm run mock:sinon:tape` to write tests in tape.js and should.js if you like
 
 ## Functional Tests (End-to-End Tests)
 
