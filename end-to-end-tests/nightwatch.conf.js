@@ -3,7 +3,7 @@ const config = require('../config');
 
 // http://nightwatchjs.org/guide#settings-file
 module.exports = {
-  "src_folders" : ["functional-tests/nightwatch", "functional-tests/solution/nightwatch"],
+  "src_folders" : ["end-to-end-tests/nightwatch", "end-to-end-tests/solution/nightwatch"],
   "output_folder" : "reports",
   "custom_commands_path" : "",
   "custom_assertions_path" : "",

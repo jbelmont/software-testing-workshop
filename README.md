@@ -90,6 +90,6 @@ Read `instructions.md` in the folder mock-stubs-spies
 Run the commands `npm run mock:sinon` to write tests in mocha and chai
 Run the commands `npm run mock:sinon:tape` to write tests in tape.js and should.js if you like
 
-## Functional Tests (End-to-End Tests)
+## End-to-End Tests
 
 ....
