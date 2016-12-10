@@ -1,6 +1,6 @@
 process.env.NODE_ENV = 'testing';
 process.env.PORT = 3000;
-const server = require('../build/dev-server').listen(process.env.PORT);
+const server = require('../app').listen(process.env.PORT);
 const spawn = require('cross-spawn'); // eslint-disable-line
 
 // 2. run the nightwatch test suite against it

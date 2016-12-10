@@ -4,5 +4,6 @@
 /reports/nightwatch
 /bin
 /dist
+/static/build
 /selenium-debug.log
 /npm-debug.log

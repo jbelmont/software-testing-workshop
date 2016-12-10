@@ -31,6 +31,7 @@ app.use(express.static(join(__dirname, 'static')));
 
 app.use('/', routes);
 app.use('/api/v1/users', users);
+app.use('/api/v1/couch', crud);
 
 /**
  * catch 404 and forward to error handler

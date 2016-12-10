@@ -1,7 +1,6 @@
 /* jshint browserify: true */
 
 const webpack = require('webpack');
-const {join} = require('path');
 
 module.exports = {
   entry: {
@@ -25,7 +24,7 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   externals: {
     react: 'React'
