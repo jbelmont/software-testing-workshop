@@ -92,4 +92,6 @@ Run the commands `npm run mock:sinon:tape` to write tests in tape.js and should.
 
 ## End-to-End Tests
 
-....
+Nightwatch.js is an easy to use Node.js based End-to-End (E2E) testing solution for browser based apps and websites. It uses the powerful W3C WebDriver API to perform commands and assertions on DOM elements.
+
+To see an end-to-end tests in action Run the command `npm run end:to:end:test:solution`
