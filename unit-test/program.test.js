@@ -1,13 +1,13 @@
 const test = require('tape');
 
 // Load Array.prototype.customMap function
-require('../exercises/map/map');
+require('./exercises/map/map');
 // Load Array.prototype.customFilter function
-require('../exercises/filter/filter');
+require('./exercises/filter/filter');
 // Load Array.prototype.concatAll function.
-require('../exercises/concatAll/concatAll');
+require('./exercises/concatAll/concatAll');
 // Load Array.prototype.concatMap function.
-require('../exercises/concatMap/concatMap');
+require('./exercises/concatMap/concatMap');
 
 test('Practice the concept of unit testing with simple tape library', function(nest) {
 
