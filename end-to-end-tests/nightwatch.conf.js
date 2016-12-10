@@ -31,7 +31,7 @@ module.exports = {
         "path" : ""
       },
       "globals": {
-        "devServerURL": "http://localhost:" + (process.env.PORT)
+        "devServerURL": "https://localhost:" + (process.env.PORT)
       }
     },
 
