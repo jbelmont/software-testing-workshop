@@ -1,7 +1,7 @@
 const test = require('tape');
 const request = require('supertest');
 
-const app = require('../../build/dev-server');
+const app = require('../../app');
 const statusCodes = require('../../constants/constants')["statusCodes"];
 
 test('Practice Integration Testing with a Restful API', nest => {

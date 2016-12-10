@@ -4,7 +4,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  extends: 'airbnb-base',
+  extends: 'eslint:recommended',
   // required to lint *.vue files
   plugins: [
     'html'
@@ -25,6 +25,12 @@ module.exports = {
       'vue': 'never'
     }],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-extra-boolean-cast': 'off',
+    'no-console': 'warn',
+    'no-case-declarations': 'warn',
+    'no-cond-assign': 'warn',
+    'brace-style': 'error',
+    'comma-dangle': 'error'
   }
 }
