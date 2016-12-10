@@ -1,7 +1,7 @@
 import { bindActionCreators, getState } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions';
-import TriangleReact from './TriangleReact';
+import CodeCraftsmanship from './CodeCraftsmanship.jsx';
 
 function mapStateToProps(state) {
   return {
@@ -13,6 +13,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch, getState);
 }
 
-const Main = connect(mapStateToProps, mapDispatchToProps)(TriangleReact);
+const Main = connect(mapStateToProps, mapDispatchToProps)(CodeCraftsmanship);
 
 export default Main;

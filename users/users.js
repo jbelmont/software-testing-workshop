@@ -5,10 +5,10 @@ const router = express.Router();
 const path = require('path');
 const winston = require('winston');
 
-const users = require('../models/db');
+const db = require('../models/crudOperations');
 
 router.get('/badMofos', (req, res, next) => {
-    users.dbActions()
+    db.retrieveDocument({ dbName: 'softwaretesting', name: 'badMofos' })
         .then(users => {
             res.send(users);
         })

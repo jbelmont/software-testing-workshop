@@ -6,6 +6,7 @@ export const EMPTY_USER_INFO = 'EMPTY_USER_INFO';
 
 // Component Text Values
 export const TRIANGLE_REACTJS_USERS = 'Triangle ReactJS Users';
+export const CODE_CRAFTSMANSHIP = 'Code Craftsmanship Saturdays';
 export const ADD_USER = 'Add User';
 export const ADD = 'Add';
 export const CLOSE = 'Close';

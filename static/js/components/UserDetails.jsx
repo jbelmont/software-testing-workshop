@@ -3,7 +3,12 @@ import {browserHistory} from 'react-router';
 
 import store from '../store/store';
 
+import * as constants from '../constants/constants';
+
 const UserDetails = routerInfo => {
+    const {
+        CODE_CRAFTSMANSHIP
+    } = constants;
     const userInformation = store && store.getState() && store.getState()["userInfo"];
     let email, firstName, lastName, gender, id;
     if (Object.keys(userInformation).length > 0) {
@@ -30,8 +35,8 @@ const UserDetails = routerInfo => {
         </div>
     );
     return (
-        <div className="triangle-react-container">
-        <h2 className="triangle-react-container-label"><strong>Triangle ReactJS Users</strong></h2>
+        <div className="code-craftsmanship-container">
+        <h2 className="code-craftsmanship-container-label"><strong>CODE_CRAFTSMANSHIP</strong></h2>
         {UserDetailsArea}
       </div>
     );

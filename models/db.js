@@ -3,14 +3,14 @@
 const nano = require('nano')('http://127.0.0.1:5984/');
 const winston = require('winston');
 
-const users = require('./users')["users"];
+const usermodels = require('./userModels');
 
 function createDbConnection({ dbName = 'softwaretesting', name = 'users' } = {}) {
     return new Promise((resolve, reject) => {
         nano.db.create(dbName, (err, body) => {
             if (!err) {
                 const couchDBName = nano.use(dbName);
-                return insertInitialDocument({ dbName, name })
+                return insertInitialDocument({ dbName: couchDBName, name })
                     .then(() => {
                         resolve(retrieveDocument({ dbName: couchDBName , name }));
                     });
@@ -36,19 +36,19 @@ function retrieveDocument({dbName, name}) {
 
 function insertInitialDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
-        dbName.insert(users, name, (err, body, header) => {
+        dbName.insert(usermodels, name, (err, body, header) => {
             if (!err) {
-                winston.info(`Created ${name} table: ${users}`);
+                winston.info(`Created ${name} table: ${usermodels}`);
                 resolve(body);
             }
             winston.log('error', 'Database Connection Error', {err});
-            reject(users);
+            reject(usermodels);
         });
     });
 }
 
-function dbActions() {
-    return createDbConnection();
+function dbActions({ dbName = 'softwaretesting', name = 'users' } = {}) {
+    return createDbConnection({dbName, name});
 }
 
 exports.dbActions = dbActions;

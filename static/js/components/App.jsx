@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import store, { history } from '../store/store';
 
-import TriangleReact from './TriangleReact.jsx';
+import CodeCraftsmanship from './CodeCraftsmanship.jsx';
 import Main from './Main.jsx';
 import UserDetails from './UserDetails.jsx';
 
@@ -13,7 +13,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Main}>
-        <IndexRoute component={TriangleReact}></IndexRoute>
+        <IndexRoute component={CodeCraftsmanship}></IndexRoute>
       </Route>
       <Route path="/user/:id" component={UserDetails}></Route>
     </Router>

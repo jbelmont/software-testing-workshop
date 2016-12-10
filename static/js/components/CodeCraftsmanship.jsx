@@ -7,7 +7,7 @@ import Users from './Users.jsx';
 
 import * as constants from '../constants/constants';
 
-class TriangleReact extends Component {
+class CodeCraftsmanship extends Component {
 
   constructor(props) {
     super(props);
@@ -68,7 +68,7 @@ class TriangleReact extends Component {
     } = this.state;
 
     const {
-      TRIANGLE_REACTJS_USERS,
+      CODE_CRAFTSMANSHIP,
       ADD_USER,
       ADD,
       CLOSE,
@@ -135,7 +135,7 @@ class TriangleReact extends Component {
     );
     
     return (
-      <div className="triangle-react-container">
+      <div className="code-craftsmanship-container">
         <div className="add-user-btn-container">
           <Button bsStyle="primary" 
                   bsSize="large" 
@@ -143,11 +143,11 @@ class TriangleReact extends Component {
           </Button>
         </div>
         {FormInstance}
-        <h2 className="triangle-react-container-label"><strong>{TRIANGLE_REACTJS_USERS}</strong></h2>
+        <h2 className="code-craftsmanship-container-label"><strong>{CODE_CRAFTSMANSHIP}</strong></h2>
         {UserArea}
       </div>
     );
   }
 }
 
-export default TriangleReact;
+export default CodeCraftsmanship;
