@@ -26,7 +26,6 @@ function retrieveDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
         dbName.get(name, (err, body) => {
             if (!err) {
-                winston.info(body);
                 resolve(body);
             }
             reject(err);

@@ -23,13 +23,14 @@ module.exports = {
 
   "test_settings" : {
     "default" : {
-      "selenium_port"  : 4444,
-      "selenium_host"  : "localhost",
+      "selenium_port": 4444,
+      "selenium_host": "localhost",
       "silent": true,
       "screenshots" : {
         "enabled" : false,
         "path" : ""
       },
+      "launch_url": "https://localhost:3000",
       "globals": {
         "devServerURL": "https://localhost:" + (process.env.PORT)
       }

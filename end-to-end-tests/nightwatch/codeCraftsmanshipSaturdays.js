@@ -1,8 +1,8 @@
-// module.exports = {
-//   'See Code Craftsmanship Saturdays page': (client) => {
-//     client
-//       .url('https://localhost:3000')
-//       .waitForElementPresent('.code-craftsmanship-container-label', 3000)
-//       .end();
-//   }
-// }
+module.exports = {
+    'Code Craftsmanship Saturdays': (client) => {
+        client
+            .url('https://localhost:3000')
+            .pause(3000)
+            .end();
+    }
+};
