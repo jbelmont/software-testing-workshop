@@ -33,6 +33,7 @@
     "clean:build": "rimraf ./static/build",
     "predev": "npm run clean:build",
     "dev": "gulp dev",
+    "dev:debug": "gulp dev:debug",
     "build": "npm run clean:build && gulp build",
     "mathjax:lib": "./scripts/markdownHelpers.sh"
   },

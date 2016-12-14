@@ -124,6 +124,16 @@ gulp.task('start', () => {
   });
 });
 
+gulp.task('debug', () => {
+  nodemon({
+    exec: 'node-inspector & node --inspect',
+    ext: 'js',
+    ignore: ['static/*'],
+    script: './bin/www',
+    verbose: true
+  });
+});
+
 gulp.task('build', (cb) => {
   runSequence('copy:react:files', 'uglify:js', 'build:js', 'build:sass', 'build:vendor:sass',  cb);
 });
@@ -131,4 +141,9 @@ gulp.task('build', (cb) => {
 gulp.task('dev', (cb) => {
   livereload.listen();
   runSequence('copy:react:files', 'uglify:js', 'build:sass', 'build:vendor:sass', ['watch:js', 'watch:sass'], 'start', cb);
+});
+
+gulp.task('dev:debug', (cb) => {
+  livereload.listen();
+  runSequence('copy:react:files', 'uglify:js', 'build:sass', 'build:vendor:sass', ['watch:js', 'watch:sass'], 'debug', cb);
 });
