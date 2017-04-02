@@ -1,25 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
+
+import store from '../store';
 
 import { Button, Radio, FormGroup, FormControl, ControlLabel, HelpBlock, FieldGroup } from 'react-bootstrap/lib';
 
 import Users from './Users.jsx';
 
-import * as constants from '../constants/constants';
+import {ajax} from '../utils/ajax.js';
+
+import * as constants from '../constants';
 
 class CodeCraftsmanship extends Component {
+
+  static propTypes = {
+    users: PropTypes.array,
+    getUserInfo: PropTypes.func,
+    addUserInfo: PropTypes.func,
+    getusers: PropTypes.func,
+    removeUser: PropTypes.func
+  };
 
   constructor(props) {
     super(props);
     this.state = {
       users: this.props.users,
       showAddPopDown: false,
-      genderValue: 'Male'
+      genderValue: 'Male',
+      trashBinSvgPath: './build/symbol-defs.svg#icon-bin'
     }
     this.togglePopDown = this.togglePopDown.bind(this);
     this.getValidationState = this.getValidationState.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addUser = this.addUser.bind(this);
+    this._generateAddUserRoute = this._generateAddUserRoute.bind(this);
+    this.removeUserAction = this.removeUserAction.bind(this);
+  }
+
+  removeUserAction(users) {
+    this.setState({
+      users
+    });
   }
 
   togglePopDown() {
@@ -47,17 +68,33 @@ class CodeCraftsmanship extends Component {
     const lastName = document.getElementById('lastNameInput') && document.getElementById('lastNameInput').value;
     const select = document.getElementById('genderSelect');
     const gender = select.options[select.selectedIndex].value;
-    const id = Math.max.apply(Math, this.state.users.map(user => user["id"])) + 1;
+    const id = Math.max.apply(Math, this.state.users.map(user => user['id'])) + 1;
     const newUser = {
-      email,
       firstName,
       lastName,
+      email,
       gender,
       id
     };
     this.props.addUserInfo(newUser);
-    const users = this.props.getusers(this.state.users);
-    console.log(users);
+    return ajax(this._generateAddUserRoute(newUser))
+      .then(() => {
+        const users = store.getState()['users'];
+        this.setState({
+          users: users
+        });
+        this.togglePopDown();
+      });
+  }
+
+  _generateAddUserRoute(user) {
+    return {
+      type: 'POST',
+      route: '/api/v1/users/addUser',
+      body: {
+        user
+      }
+    };
   }
 
   render() {
@@ -122,23 +159,33 @@ class CodeCraftsmanship extends Component {
     }
 
     const UserArea = (
-        users.map(info => 
-            <Users  email={info["email"]}
-              first_name={info["first_name"]}
-              last_name={info["last_name"]}
-              gender={info["gender"]}
-              id={info["id"]}
-              props={this.props}
-              onClick={this.props.getUserInfo}
+        users.map( (info, index) =>
+            <Users  data-email={info['email']}
+                    email={info['email']}
+                    data-first-name={info['first_name']}
+                    first_name={info['first_name']}
+                    data-last-name={info['last_name']}
+                    last_name={info['last_name']}
+                    data-gender={info['gender']}
+                    gender={info['gender']}
+                    data-id={info['id']}
+                    id={info['id']}
+                    key={index}
+                    index={index}
+                    props={this.props}
+                    trashBinSvgPath={this.state.trashBinSvgPath}
+                    store={store}
+                    onClick={[this.props.getUserInfo, this.props.removeUser, this.removeUserAction]}
             />
         )
     );
-    
+
     return (
       <div className="code-craftsmanship-container">
         <div className="add-user-btn-container">
-          <Button bsStyle="primary" 
-                  bsSize="large" 
+          <Button bsStyle="primary"
+                  bsSize="large"
+                  id="addSomeUserBtn"
                   onClick={this.togglePopDown}>{!showAddPopDown && ADD_USER || CLOSE}
           </Button>
         </div>

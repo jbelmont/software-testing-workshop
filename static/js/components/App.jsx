@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
-import store, { history } from '../store/store';
+import store, { history } from '../store';
 
 import CodeCraftsmanship from './CodeCraftsmanship.jsx';
 import Main from './Main.jsx';

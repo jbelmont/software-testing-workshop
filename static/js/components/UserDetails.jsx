@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {browserHistory} from 'react-router';
 
-import store from '../store/store';
+import store from '../store';
 
-import * as constants from '../constants/constants';
+import * as constants from '../constants';
 
 const UserDetails = routerInfo => {
     const {

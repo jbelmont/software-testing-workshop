@@ -2,6 +2,7 @@
 export const GET_USERS = 'USERS';
 export const ADD_USER_DETAIL_INFO = 'ADD_USER_DETAIL_INFO';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
+export const REMOVE_USER = 'REMOVE_USER';
 export const EMPTY_USER_INFO = 'EMPTY_USER_INFO';
 
 // Component Text Values

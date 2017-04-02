@@ -1,21 +1,22 @@
-import * as constants from '../constants/constants.js';
+import * as constants from '../constants';
 
 const {
     GET_USERS,
-    ADD_USER_DETAIL_INFO,
-    ADD_NEW_USER
+    USER_DETAIL_INFO,
+    ADD_NEW_USER,
+    REMOVE_USER
 } = constants;
 
-export function getusers({users}) {
+export function getusers({ users }) {
   return {
     type: GET_USERS,
     users
   };
 }
 
-export function getUserInfo({email, firstName, lastName, gender, id}) {
+export function getUserInfo({ email, firstName, lastName, gender, id }) {
   return {
-    type: ADD_USER_DETAIL_INFO,
+    type: USER_DETAIL_INFO,
     email,
     firstName,
     lastName,
@@ -24,7 +25,7 @@ export function getUserInfo({email, firstName, lastName, gender, id}) {
   };
 }
 
-export function addUserInfo({email, firstName, lastName, gender, id}) {
+export function addUserInfo({ email, firstName, lastName, gender, id }) {
   return {
     type: ADD_NEW_USER,
     email,
@@ -32,5 +33,12 @@ export function addUserInfo({email, firstName, lastName, gender, id}) {
     lastName,
     gender,
     id
-  }
+  };
+}
+
+export function removeUser({ index }) {
+  return {
+    type: REMOVE_USER,
+    index
+  };
 }
