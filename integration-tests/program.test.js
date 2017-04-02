@@ -1,7 +1,7 @@
 const test = require('tape');
 const request = require('supertest');
 
-const app = require('../../app');
+const app = require('../app');
 
 test('Practice Integration Testing with a simple Node/Express API', nest => {
 
@@ -13,7 +13,7 @@ test('Practice Integration Testing with a simple Node/Express API', nest => {
             .get('/api/v1/users/badMofos')
             .set('Accept', 'application/json')
             .expect(res => {
-                
+
             })
             .end((err, res) => {
                 assert.end();
@@ -22,9 +22,9 @@ test('Practice Integration Testing with a simple Node/Express API', nest => {
 
     // TODO: Finish integration test that makes a POST request to /api/v1/couch/insertDocument
     nest.test('Test /api/v1/couch/insertDocument endpoint', assert => {
-
+      assert.end();
     });
 
     // TODO: Write Integration test that tests /api/v1/couch/deleteDocument endpoint
-    
+
 });
