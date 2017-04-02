@@ -7,3 +7,6 @@
 /static/build
 /selenium-debug.log
 /npm-debug.log
+/coverage
+/.nyc_output
+/_book

@@ -1,5 +1,8 @@
 # Code Craftsmanship Saturdays Fourth Session
 
+[![Build Status](https://travis-ci.org/Code-Craftsmanship-Saturdays/software-testing.svg?branch=master)](https://travis-ci.org/Code-Craftsmanship-Saturdays/software-testing)
+[![Coverage Status](https://coveralls.io/repos/github/Code-Craftsmanship-Saturdays/software-testing/badge.svg?branch=master)](https://coveralls.io/github/Code-Craftsmanship-Saturdays/software-testing?branch=master)
+
 To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
 
 This meetup event gives an introduction to unit testing, integration testing,
@@ -13,7 +16,7 @@ and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.
 
 # Assignments
 
-Each assignment folder has several exercise files. 
+Each assignment folder has several exercise files.
 Read the instructions.md file in order to complete the exercises.
 Some assignments may or may not have a program.js file that you will test.
 Each assignment will have a file called program.test.js.
@@ -34,7 +37,7 @@ Run the command `npm run unit:test:solution` at root of folder to see the soluti
 ## Integration Testing
 
 Integration Testing is a level of software testing where individual units are combined and tested as a group.
-Integration tests ensure that various units work together correctly. 
+Integration tests ensure that various units work together correctly.
 Introducing dependencies on external modules or data also turns unit tests into integration tests.
 
 `Go to integration-tests folder`
@@ -44,8 +47,8 @@ Run the command `npm run integration:test:solution` to see the solution output.
 
 ## Behavior Driven Development
 
-BDD uses a more verbose style so that it can be read almost like a sentence and some argue that BDD eliminates issues that TDD might cause. 
-The ability to read your tests like a sentence is a cognitive shift in how you will think about your tests. 
+BDD uses a more verbose style so that it can be read almost like a sentence and some argue that BDD eliminates issues that TDD might cause.
+The ability to read your tests like a sentence is a cognitive shift in how you will think about your tests.
 The argument is that if you can read your tests fluidly, you will naturally write better and more comprehensive tests.
 [Josh Davis Blog Entry](http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
 
@@ -64,25 +67,22 @@ All the commands can be found in instructions.md
 
 ## Mocks // Spies // Stubs
 
-###
-* Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations. 
-* A mock will fail your test if it is not used as expected. 
-* Mocks should only be used for the method under test. 
-* In every unit test, there should be one unit under test. 
+* Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.
+* A mock will fail your test if it is not used as expected.
+* Mocks should only be used for the method under test.
+* In every unit test, there should be one unit under test.
 * If you want to control how your unit is being used and like stating expectations upfront (as opposed to asserting after the fact), use a mock.
 * [Mocks](http://sinonjs.org/docs/#mocks)
 
-###
-* Test stubs are functions (spies) with pre-programmed behavior. 
+* Test stubs are functions (spies) with pre-programmed behavior.
 * They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.
-* As spies, stubs can be either anonymous, or wrap existing functions. 
+* As spies, stubs can be either anonymous, or wrap existing functions.
 * When wrapping an existing function with a stub, the original function is not called.
 * [Stubs](http://sinonjs.org/docs/#stubs)
 
-###
-* A test spy is a function that records arguments, return value, the value of this and exception thrown (if any) for all its calls. 
+* A test spy is a function that records arguments, return value, the value of this and exception thrown (if any) for all its calls.
 * A test spy can be an anonymous function or it can wrap an existing function.
-* Test spies are useful to test both callbacks and how certain functions/methods are used throughout the system under test. 
+* Test spies are useful to test both callbacks and how certain functions/methods are used throughout the system under test.
 * The following simplified example shows how to use spies to test how a function handles a callback
 * [Spies](http://sinonjs.org/docs/#spies)
 

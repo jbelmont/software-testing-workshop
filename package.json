@@ -37,7 +37,12 @@
     "dev:debug": "gulp dev:debug",
     "build": "npm run clean:build && gulp build",
     "mathjax:lib": "./scripts/markdownHelpers.sh",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "docs:init": "gitbook init",
+    "docs:prepare": "gitbook install",
+    "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:publish": "npm run docs:build && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs' && git push git@github.com:Code-Craftsmanship-Saturdays/software-testing.git gh-pages --force"
   },
   "repository": {
     "type": "git",
@@ -91,6 +96,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "function-bind": "^1.1.0",
+    "gitbook": "^3.2.2",
+    "gitbook-cli": "^2.3.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
@@ -104,7 +111,6 @@
     "http-proxy-middleware": "^0.17.2",
     "jest": "^17.0.3",
     "json-loader": "^0.5.4",
-    "mathjax": "^2.7.0",
     "merge-stream": "^1.0.1",
     "mocha": "^3.1.2",
     "nightmare": "^2.8.1",
