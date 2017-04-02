@@ -17,4 +17,17 @@ router.get('/badMofos', (req, res, next) => {
         });
 });
 
+router.post('/addUser', (req, res, next) => {
+  const {
+    user
+  } = req.body;
+  db.updateDocument({ dbName: 'softwaretesting', name: 'users' })
+    .then(users => {
+      res.send(users);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
 module.exports = router;
