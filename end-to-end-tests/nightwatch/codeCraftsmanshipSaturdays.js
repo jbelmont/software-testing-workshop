@@ -19,7 +19,7 @@ module.exports = {
     setInput('#lastNameInput', 'Norris')
 
     browser
-      .click('#addSomeUserBtn')
+      .click('#addUserSubmit')
       .waitForElementVisible('[data-email="chuck@badass.net"]', 1000)
       .end();
 

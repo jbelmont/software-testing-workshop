@@ -153,7 +153,7 @@ class CodeCraftsmanship extends Component {
               <option value={FEMALE}>{FEMALE}</option>
             </FormControl>
           </FormGroup>
-          <Button bsStyle="primary" bsSize="large" type="submit">{ADD}</Button>
+          <Button id="addUserSubmit" bsStyle="primary" bsSize="large" type="submit">{ADD}</Button>
         </form>
       );
     }
