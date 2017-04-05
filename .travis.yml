@@ -11,6 +11,7 @@ addons:
       - oracle-java8-installer
       - oracle-java8-set-default
       - google-chrome-stable
+      - couchdb
 before_script:
   - export CHROME_BIN=chromium-browser
   - "export DISPLAY=:99.0"
