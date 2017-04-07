@@ -5,7 +5,11 @@ To view lecture notes for this course, please consult the
 
 [Rediscovery of TDD](https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development)
 
-Open program.test.js and go to each TODO block.
+Instructions for Unit Exercises:
+1. Go to unit folder `cd unit`
+2. Open program.test.js and go to each TODO block.
+3. Complete each todo block by adding unit tests.
+4. Please run the following script to `npm run unit:test` in order to do the unit test exercises
 
 ### 1. Unit Test the Map Function:
 ```js
@@ -74,8 +78,8 @@ nest.test('I am some text', assert => {
     const actual = ...;
     const expected = ...;
     assert.equal(
-        actual, 
-        expected, 
+        actual,
+        expected,
         'I should another text'
     );
     assert.end();

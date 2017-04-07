@@ -19,8 +19,12 @@ module.exports = {
     setInput('#lastNameInput', 'Norris')
 
     browser
-      .click('#addUserBtn')
+      .click('#addUserSubmit')
       .waitForElementVisible('[data-email="chuck@badass.net"]', 1000)
+
+    browser
+      .click('[data-email="dpayne3@cdbaby.com"]')
+      .assert.urlContains('user')
       .end();
 
     function setInput(input, value) {

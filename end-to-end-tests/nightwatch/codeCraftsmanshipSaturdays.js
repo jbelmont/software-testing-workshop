@@ -2,29 +2,15 @@
 
 module.exports = {
   'Code Craftsmanship Saturdays': browser => {
-    browser
-      .url('http://localhost:3000')
-        .waitForElementVisible('.code-craftsmanship-container-label', 1000)
-        .assert.containsText('.code-craftsmanship-container-label > strong', 'Code Craftsmanship Saturdays')
+    // TODO: Go to url http://localhost:3000 and make assertion
 
-    browser
-      .click('.users-container .users-container-trash-bin')
-      .assert.elementNotPresent('[data-email="tcox0@dion.ne.jp"]')
+    // TODO: Click trash can and make assertion
 
-    browser
-      .click('#addSomeUserBtn')
+    // TODO: Add a new user and assert they are added
 
-    setInput('#emailInput', 'chuck@badass.net')
-    setInput('#firstNameInput', 'Chuck')
-    setInput('#lastNameInput', 'Norris')
+    // TODO: Go to an individual user and make assertion
 
-    browser
-      .click('#addUserSubmit')
-      .waitForElementVisible('[data-email="chuck@badass.net"]', 1000)
-      .end();
-
-    function setInput(input, value) {
-      browser.setValue(input, value);
-    }
+    // Remove Me Please
+    browser.end();
   }
 };

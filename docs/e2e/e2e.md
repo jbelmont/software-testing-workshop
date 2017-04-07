@@ -156,3 +156,11 @@ Some metrics to think about:
     1. These types of tests are more resource intensive and you should think about separating end to end tests to an additional build.
     2. Keep your first build fast by only incorporating Unit Tests
     3. Perhaps include a secondary build where you run integration tests and end to end tests.
+
+Instructions for End To End Exercises:
+1. Go to end to end tests folder `cd end-to-end-tests/nightwatch`
+2. Open codeCraftsmanshipSaturdays.js.
+3. Complete each todo block by adding the last part of the end to end test.
+4. Run the script `npm run end:to:end:test`
+
+[NightWatch Docs](http://nightwatchjs.org/api)
