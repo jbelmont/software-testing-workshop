@@ -13,8 +13,8 @@ router.get('/retrieveDocument/:name', (req, res, next) => {
     if (name) {
         const ok = statusCodes["ok"];
         const serverError = statusCodes["internalServerError"];
-        return crud.retrieveDocument({ 
-            dbName: 'softwaretesting', 
+        return crud.retrieveDocument({
+            dbName: 'softwaretesting',
             name: name
         })
         .then(body => {
@@ -41,10 +41,10 @@ router.post('/insertDocument', (req, res, next) => {
     if (name && document) {
         const created = statusCodes["create"];
         const conflict = statusCodes["conflict"];
-        return crud.updateDocument({ 
-            dbName: 'softwaretesting', 
-            name: name, 
-            body: document 
+        return crud.insertDocument({
+            dbName: 'softwaretesting',
+            name: name,
+            body: document
         })
         .then(body => {
             res.status(created).send(body);
@@ -72,10 +72,10 @@ router.post('/insertDocument/:name', (req, res, next) => {
     if (name && document) {
         const created = statusCodes["create"];
         const conflict = statusCodes["conflict"];
-        return crud.updateDocument({ 
-            dbName: 'softwaretesting', 
-            name: name, 
-            body: document 
+        return crud.insertDocument({
+            dbName: 'softwaretesting',
+            name: name,
+            body: document
         })
         .then(body => {
             res.status(created).send(body);
@@ -99,8 +99,8 @@ router.delete('/deleteDocument', (req, res, next) => {
     if (name) {
         const removed = statusCodes["delete"];
         const gone = statusCodes["gone"];
-        return crud.deleteDocument({ 
-            dbName: 'softwaretesting', 
+        return crud.deleteDocument({
+            dbName: 'softwaretesting',
             name
         })
         .then(body => {
@@ -125,8 +125,8 @@ router.delete('/deleteDocument/:name', (req, res, next) => {
     if (name) {
         const removed = statusCodes["delete"];
         const gone = statusCodes["gone"];
-        return crud.deleteDocument({ 
-            dbName: 'softwaretesting', 
+        return crud.deleteDocument({
+            dbName: 'softwaretesting',
             name
         })
         .then(body => {

@@ -21,7 +21,7 @@ router.post('/addUser', (req, res, next) => {
   const {
     user
   } = req.body;
-  db.updateDocument({ dbName: 'softwaretesting', name: 'users' })
+  db.insertDocument({ dbName: 'softwaretesting', name: 'users' })
     .then(users => {
       res.send(users);
     })

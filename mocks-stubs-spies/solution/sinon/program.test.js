@@ -28,7 +28,7 @@ describe('Practice Using Mocks, Stubs, and Spies using sinon', () => {
             ]
         });
 
-        insertDocStub = sandbox.stub(DocOperations, "updateDocument");
+        insertDocStub = sandbox.stub(DocOperations, "insertDocument");
         insertDocStub.withArgs().throws({
             "err": {
                 "message": "400",
@@ -37,7 +37,7 @@ describe('Practice Using Mocks, Stubs, and Spies using sinon', () => {
             "message": "Missing name/document."
         });
         insertDocStub.withArgs({
-            "document": { 
+            "document": {
                 "marvel": "A bunch of characters",
                 "characters": [
                     "Spider Man",
@@ -104,8 +104,8 @@ describe('Practice Using Mocks, Stubs, and Spies using sinon', () => {
                 "Teela",
                 "Skeletor"
             ];
-            const heManDoc = DocOperations.retrieveDocument({ 
-                dbName: 'softwaretesting', 
+            const heManDoc = DocOperations.retrieveDocument({
+                dbName: 'softwaretesting',
                 name: 'powerRangers'
             });
             sinon.assert.calledOnce(retrieveDocStub);
@@ -120,7 +120,7 @@ describe('Practice Using Mocks, Stubs, and Spies using sinon', () => {
                 sinon.assert.threw(insertDocStub);
             }
             const insertDoc = {
-                "document": { 
+                "document": {
                     "marvel": "A bunch of characters",
                     "characters": [
                         "Spider Man",

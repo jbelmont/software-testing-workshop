@@ -20,7 +20,7 @@ A mock will fail your test if it is not used as expected.
 
 Sinon Documentation discusses when not to use Mocks.
 Mocks come with built-in expectations that may fail your test. Thus, they enforce implementation details.
-**The rule of thumb is: if you wouldn’t add an assertion for some specific call, don’t mock it. Use a stub instead.** 
+**The rule of thumb is: if you wouldn’t add an assertion for some specific call, don’t mock it. Use a stub instead.**
 **In general you should never have more than one mock (possibly with several expectations) in a single test.**
 
 #### Sinon.js Stubs via explanation [Sinon Stubs](http://sinonjs.org/docs/#stubs)
@@ -59,13 +59,13 @@ You don't need the implementation here but I included it here for your reference
 Using Sinon check that the retrieveDocument stub is called once.
 Make an assertion that the payload and the expected response match.
 
-####2. Stub the `updateDocument` function.
+####2. Stub the `insertDocument` function.
 
 ```javascript
 function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {}) {
     return new Promise((resolve, reject) => {
         const couchDBName = nano.use(dbName);
-        return updateDoc({ dbName: couchDBName, name, body })
+        return insertDoc({ dbName: couchDBName, name, body })
             .then(() => {
                 resolve(retrieveDoc({ dbName: couchDBName , name }));
             })
@@ -75,7 +75,7 @@ function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {
     });
 }
 
-function updateDoc({dbName, name, body}) {
+function insertDoc({dbName, name, body}) {
     return new Promise((resolve, reject) => {
         dbName.insert(body, name, (err, body, header) => {
             if (!err) {
@@ -127,5 +127,5 @@ function deleteDocument({dbName, name}) {
 }
 ```
 
-* Stub out the deleteDocument function by using sinon. 
+* Stub out the deleteDocument function by using sinon.
 * Use chai assertions or use the should.js assertion library

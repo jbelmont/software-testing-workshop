@@ -6,7 +6,7 @@ const winston = require('winston');
 function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {}) {
     return new Promise((resolve, reject) => {
         const couchDBName = nano.use(dbName);
-        return updateDoc({ dbName: couchDBName, name, body })
+        return insertDoc({ dbName: couchDBName, name, body })
             .then(() => {
                 resolve(retrieveDoc({ dbName: couchDBName , name }));
             })
@@ -16,7 +16,7 @@ function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {
     });
 }
 
-function updateDoc({dbName, name, body}) {
+function insertDoc({dbName, name, body}) {
     return new Promise((resolve, reject) => {
         dbName.insert(body, name, (err, body, header) => {
             if (!err) {
@@ -81,5 +81,5 @@ function deleteDocument({dbName, name}) {
 }
 
 exports.retrieveDocument = retrieveDocument;
-exports.updateDocument = insertDocument;
+exports.insertDocument = insertDocument;
 exports.deleteDocument = deleteDocument;

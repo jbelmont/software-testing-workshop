@@ -9,7 +9,7 @@ const db = require('../models/crudOperations');
 
 test('setup', t => {
   t.plan(1);
-  return db.updateDocument({
+  return db.insertDocument({
     dbName: 'softwaretesting',
     name: 'movies',
     body: {
@@ -23,24 +23,7 @@ test('setup', t => {
 });
 
 test('retrieve movie list from endpoints', t => {
-  t.plan(2);
-  const ok = statusCodes["ok"];
-  const expected = ['Rocky', 'Rambo', 'Blood Sport'];
-  request(app)
-      .get('/api/v1/couch/retrieveDocument/movies')
-      .set('Accept', 'application/json')
-      .expect(res => {
-          t.equal(res.status, ok);
-          const movies = res.body.movies
-          t.same(
-              movies,
-              expected,
-              `Should return ${expected}`
-          );
-      })
-      .end((err, res) => {
-          t.end();
-      });
+  // Add rest endpoint call here
 });
 
 test('teardown', t => {

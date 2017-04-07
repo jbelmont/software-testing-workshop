@@ -3,13 +3,13 @@
 const test = require('tap').test;
 const request = require('supertest');
 
-const app = require('../app');
-const statusCodes = require('../constants/constants')["statusCodes"];
-const db = require('../models/crudOperations');
+const app = require('../../app');
+const statusCodes = require('../../constants/constants')["statusCodes"];
+const db = require('../../models/crudOperations');
 
 test('setup', t => {
   t.plan(1);
-  return db.updateDocument({
+  return db.insertDocument({
     dbName: 'softwaretesting',
     name: 'movies',
     body: {
