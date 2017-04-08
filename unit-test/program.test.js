@@ -13,14 +13,19 @@ test('Practice the concept of unit testing with simple tape library', function(n
 
     // TODO: Make unit test pass with actual and expected assertion.
     nest.test('Unit test the map function', assert => {
-        assert.equal(actual, expected,
+        const numbers = [1, 2, 3, 4, 5];
+        const actual = numbers.customMap(function(elem) {
+          return elem + 1;
+        });
+        const expected = [2, 3, 4, 5, 6];
+        assert.deepEqual(actual, expected,
             `should render default message`);
         assert.end();
     });
 
     // TODO: Unit test filter function
     nest.test('Unit test the filter function', assert => {
-
+      assert.end();
     });
 
     // TODO: Unit test concatAll function
