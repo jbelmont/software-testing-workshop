@@ -9,10 +9,9 @@ This meetup event gives an introduction to unit testing, integration testing,
 and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.
 
 # Setup instructions
-### 1. Install node.js via [Node.js](https://nodejs.org/en/download/)
-### 2. Install couchdb via [CouchDB](http://couchdb.apache.org/)
-### 3. Run `npm install` on root level of folder.
-### 4. Run `npm run` to see all the scripts available
+### 1. Install Docker via [Docker](https://docs.docker.com/engine/installation/)
+### 3. Run `docker-compose build` on root level of folder.
+### 4. Run `docker-compose up -d` to start application
 
 # Assignments
 

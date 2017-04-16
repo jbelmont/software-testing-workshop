@@ -1,6 +1,6 @@
 "use strict";
 
-const nano = require('nano')('http://127.0.0.1:5984/');
+const nano = require('nano')('http://admin:password@db:5984');
 const winston = require('winston');
 
 const usermodels = require('./userModels');
@@ -13,6 +13,9 @@ function createDbConnection({ dbName = 'softwaretesting', name = 'users' } = {})
                 return insertInitialDocument({ dbName: couchDBName, name })
                     .then(() => {
                         resolve(retrieveDocument({ dbName: couchDBName , name }));
+                    })
+                    .catch(err => {
+                      winston.error(err);
                     });
             } else {
                 const db = nano.use(dbName);
@@ -26,9 +29,11 @@ function retrieveDocument({dbName, name}) {
     return new Promise((resolve, reject) => {
         dbName.get(name, (err, body) => {
             if (!err) {
-                resolve(body);
+              resolve(body);
+            } else {
+              winston.error(err);
+              reject(err);
             }
-            reject(err);
         });
     });
 }
@@ -39,9 +44,9 @@ function insertInitialDocument({dbName, name}) {
             if (!err) {
                 winston.info(`Created ${name} table: ${usermodels}`);
                 resolve(body);
+            } else {
+              reject(usermodels);
             }
-            winston.log('error', 'Database Connection Error', {err});
-            reject(usermodels);
         });
     });
 }
