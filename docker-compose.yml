@@ -20,3 +20,7 @@ services:
       COUCHDB_PASSWORD: password
     ports:
       - "5984:5984"
+  e2e:
+    build: .
+    command:
+      /bin/sh -c "node end-to-end-tests/nightwatch.runner.js"
