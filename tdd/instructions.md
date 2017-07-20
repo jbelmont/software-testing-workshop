@@ -1,6 +1,6 @@
 ## Test-Driven Development (BDD)
 
-To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
+To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
 
 #### Definition of TDD via Wikipedia [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
 Each test case fails initially: This ensures that the test really works and can catch an error. Once this is shown, the underlying functionality can be implemented. This has led to the "test-driven development mantra", which is "red/green/refactor", where red means fail and green means pass. Test-driven development constantly repeats the steps of adding test cases that fail, passing them, and refactoring. Receiving the expected test results at each stage reinforces the developer's mental model of the code, boosts confidence and increases productivity.
@@ -16,12 +16,12 @@ Each test case fails initially: This ensures that the test really works and can 
 #### Exercise Instructions
 Requirements for First TDD Cycle
 Create a function that computes the average of a range of numbers.
-Please go to slide xyz in [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing)
+Please go to slide xyz in [github-pages](https://jbelmont.github.io/software-testing)
 
 ##### Test-Driven Development Cycle 1 (Add a Test / Run Tests)
 1. Go to file path `tdd/tdd-cycle/cycle1/program.test.js` and add a failing test by calling a function that doesn't exist in program.js
 2. Add a failing test in program.test.js using either Mocha with Chai or with Tape from our previous exercies.
-3. Run the failing test `npm run tdd:cycle1` 
+3. Run the failing test `npm run tdd:cycle1`
 
 ##### Test-Driven Development Cycle 2 (Write the Code / Run Tests)
 1. Go to file path `tdd/tdd-cycle/cycle2`.

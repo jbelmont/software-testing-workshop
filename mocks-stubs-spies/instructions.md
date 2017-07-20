@@ -1,6 +1,6 @@
 ## Mocks
 
-To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
+To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
 
 #### Definition of Mocks via Wikipedia [Mocks](https://en.wikipedia.org/wiki/Mock_object)
 In object-oriented programming, mock objects (also can be a unit of work) are simulated objects that mimic the behavior of real objects in controlled ways. A programmer typically creates a mock object to test the behavior of some other object, in much the same way that a car designer uses a crash test dummy to simulate the dynamic behavior of a human in vehicle impacts.

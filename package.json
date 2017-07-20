@@ -48,11 +48,11 @@
     "docs:prepare": "gitbook install",
     "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
     "docs:watch": "npm run docs:prepare && gitbook serve",
-    "docs:publish": "npm run docs:build && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs' && git push git@github.com:Code-Craftsmanship-Saturdays/software-testing.git gh-pages --force"
+    "docs:publish": "npm run docs:build && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs' && git push git@github.com:jbelmont/software-testing.git gh-pages --force"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Code-Craftsmanship-Saturdays/software-testing.git"
+    "url": "git+https://github.com/jbelmont/software-testing.git"
   },
   "keywords": [
     "Unit Testing",
@@ -65,9 +65,9 @@
   "author": "Jean-Marcel Belmont",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Code-Craftsmanship-Saturdays/software-testing/issues"
+    "url": "https://github.com/jbelmont/software-testing/issues"
   },
-  "homepage": "https://github.com/Code-Craftsmanship-Saturdays/software-testing#readme",
+  "homepage": "https://github.com/jbelmont/software-testing#readme",
   "devDependencies": {
     "autoprefixer": "^6.5.3",
     "autoprefixer-loader": "^3.2.0",

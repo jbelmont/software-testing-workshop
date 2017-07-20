@@ -1,6 +1,6 @@
 ## Behavior-Driven Development (BDD)
 
-To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
+To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
 
 ## Definition of BDD via Wikipedia
 BDD (behavior-driven development) combines practices from TDD and from ATDD.[27] It includes the practice of writing tests first, but focuses on tests which describe behavior, rather than tests which test a unit of implementation. Tools such as Mspec and Specflow provide a syntax which allow non-programmers to define the behaviors which developers can then translate into automated tests. Behavior-driven development combines the general techniques and principles of TDD with ideas from domain-driven design and object-oriented analysis and design to provide software development and management teams with shared tools and a shared process to collaborate on software development.
@@ -8,7 +8,7 @@ BDD (behavior-driven development) combines practices from TDD and from ATDD.[27]
 ## Another Look at what BDD is via Josh Davis [Blog](http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
 The main difference is just the wording. BDD uses a more verbose style so that it can be read almost like a sentence.
 
-In contrast to TDD, BDD is when we write behavior & specification that then drives our software development. 
+In contrast to TDD, BDD is when we write behavior & specification that then drives our software development.
 The ability to read your tests like a sentence is a cognitive shift in how you will think about your tests. The argument is that if you can read your tests fluidly, you will naturally write better and more comprehensive tests.
 
 Open program.test.js and go to each TODO block.
@@ -33,17 +33,17 @@ it('Unit test the Array.prototype.findIdx function', done => {
         ];
         const IDX = 1;
         // TODO add assertions here:
-        done();  
+        done();
     });
 ```
 
 ##### Read the chai assertion [Assertions](http://chaijs.com/api/assert)
-##### Read the BDD Styles for Expect and Should [Styles](http://chaijs.com/guide/styles) 
+##### Read the BDD Styles for Expect and Should [Styles](http://chaijs.com/guide/styles)
 
 
 *For Unit tests I usually create 2 variables one named actual and another named expect but this is strictly up to you.*
 
-_Expect example_ 
+_Expect example_
 ```javascript
 expect(someTest).to.eql(ThisAssertion);
 ```
@@ -62,12 +62,12 @@ The `Array.prototype.findIdx` function behaves in the following manner
 // outputs => 1
 ```
 
-### 2. Unit test the Array.prototype.findInput Function 
+### 2. Unit test the Array.prototype.findInput Function
 
 Write a BDD Style test using the following structure in program.test.js
 ```javascript
 it('Unit test the Array.prototype.findInput function', function(done) {
-    // TODO: Finish the test here.    
+    // TODO: Finish the test here.
     done();
 });
 ```
@@ -93,7 +93,7 @@ The `Array.prototype.zip` function behaves in the following manner
     [true, false, true]
 ].zip();
 
-// outputs => 
+// outputs =>
 [
     [1, "one", true],
     [2, "two", false],

@@ -1,9 +1,9 @@
 # Code Craftsmanship Saturdays Fourth Session
 
-[![Build Status](https://travis-ci.org/Code-Craftsmanship-Saturdays/software-testing.svg?branch=master)](https://travis-ci.org/Code-Craftsmanship-Saturdays/software-testing)
-[![Coverage Status](https://coveralls.io/repos/github/Code-Craftsmanship-Saturdays/software-testing/badge.svg?branch=master)](https://coveralls.io/github/Code-Craftsmanship-Saturdays/software-testing?branch=master)
+[![Build Status](https://travis-ci.org/jbelmont/software-testing.svg?branch=master)](https://travis-ci.org/jbelmont/software-testing)
+[![Coverage Status](https://coveralls.io/repos/github/jbelmont/software-testing/badge.svg?branch=master)](https://coveralls.io/github/jbelmont/software-testing?branch=master)
 
-To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
+To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
 
 This meetup event gives an introduction to unit testing, integration testing,
 and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.

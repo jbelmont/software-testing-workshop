@@ -1,9 +1,9 @@
 ## Integration Tests
 
-To view lecture notes for this course, please consult the [github-pages](https://code-craftsmanship-saturdays.github.io/software-testing).
+To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
 
 ## Distinction between Unit Tests
-*Introducing dependencies on external modules or data also turns unit tests into integration tests.* 
+*Introducing dependencies on external modules or data also turns unit tests into integration tests.*
 
 *If one module misbehaves in a chain of interrelated modules, it is not so immediately clear where to look for the cause of the failure.*
 *When code under development relies on a database, a web service, or any other external process or service,*
@@ -13,7 +13,7 @@ To view lecture notes for this course, please consult the [github-pages](https:/
 
 ## Starting instructions
 * Open 2 terminal prompts
-* run the command `couchdb` 
+* run the command `couchdb`
 * `cd integration-tests`
 ### II. Using text editor of your choice open program.test.js and complete each TODO block.
 
