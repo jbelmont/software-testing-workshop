@@ -41,7 +41,7 @@
     "dev:services": "docker-compose up web db",
     "stop:services": "docker-compose down",
     "e2e:services": "docker-compose up e2e db",
-    "test": "docker-compose up test",
+    "test": "npm run unit:test:solution && npm run mock:sinon:tape:solution",
     "mathjax:lib": "./scripts/markdownHelpers.sh",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "docs:init": "gitbook init",
