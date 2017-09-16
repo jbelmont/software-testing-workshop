@@ -40,7 +40,7 @@ Test spies are useful to test both callbacks and how certain functions/methods a
 
 **Open program.test.js in `mocks-stubs-spies` folder**
 
-####1. Stub the `retrieveDocument` function
+#### 1. Stub the `retrieveDocument` function
 ```javascript
 function retrieveDocument({dbName, name}) {
     const couchDBName = nano.use(dbName);
@@ -59,7 +59,7 @@ You don't need the implementation here but I included it here for your reference
 Using Sinon check that the retrieveDocument stub is called once.
 Make an assertion that the payload and the expected response match.
 
-####2. Stub the `insertDocument` function.
+#### 2. Stub the `insertDocument` function.
 
 ```javascript
 function insertDocument({ dbName = 'softwaretesting', name = 'users', body } = {}) {
@@ -93,9 +93,9 @@ function insertDoc({dbName, name, body}) {
 * Use sinon to make some assertions about the stubbed out function
 * Remember to use the setup function in tape or the before block in mocha to initialize the stub.
 
-####3. Stub out the `deleteDocument` function
+#### 3. Stub out the `deleteDocument` function
 
-######Implementation Details
+###### Implementation Details
 ```javascript
 function retrieveDoc({dbName, name}) {
     return new Promise((resolve, reject) => {

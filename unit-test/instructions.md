@@ -8,6 +8,7 @@ To view lecture notes for this course, please consult the
 Open program.test.js and go to each TODO block.
 
 ### 1. Unit Test the Map Function:
+
 ```js
 nest.test('Unit test the map function', assert => {
     assert.equal(actual, expected,
@@ -16,7 +17,8 @@ nest.test('Unit test the map function', assert => {
 });
 ```
 
-####For a typical unit test I usually create 2 variables one named actual and another named expect
+#### For a typical unit test I usually create 2 variables one named actual and another named expect
+
 *For `assert.equal(actual, expected, 'My message here')` if actual and expected are equal then the unit test will pass.*
 
 The map function behaves in the following manner
@@ -69,6 +71,7 @@ This will return the following structure
 `[1,2,3,4,5,6,7,8,9,10]`
 
 ##### Write a Unit Test using the same format as previous 2 exercises.
+
 ```js
 nest.test('I am some text', assert => {
     const actual = ...;

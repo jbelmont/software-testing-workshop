@@ -8,12 +8,12 @@ To view lecture notes for this course, please consult the [github-pages](https:/
 This meetup event gives an introduction to unit testing, integration testing,
 and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.
 
-# Setup instructions
+## Setup instructions
 ### 1. Install Docker via [Docker](https://docs.docker.com/engine/installation/)
 ### 3. Run `docker-compose build` on root level of folder.
 ### 4. Run `docker-compose up -d` to start application
 
-# Assignments
+## Assignments
 
 Each assignment folder has several exercise files.
 Read the instructions.md file in order to complete the exercises.
@@ -27,11 +27,15 @@ A unit test is an automated piece of code that invokes a unit of work in the sys
 A unit of work is a single logical functional use case in the system that can be invoked by some public interface (in most cases).
 A unit of work can span a single method, a whole class or multiple classes working together to achieve one single logical purpose that can be verified.
 
-`Go to  unit-test folder`
-open `program.test.js`
-Read `instructions.md` in the folder unit-test
-Run the command `npm run unit:test` at root of folder in order to see if tests pass.
-Run the command `npm run unit:test:solution` at root of folder to see the solution output if you want.
+1. `Go to  unit-test folder`
+
+2. open `program.test.js`
+
+3. Read `instructions.md` in the folder unit-test
+
+4. Run the command `npm run unit:test` at root of folder in order to see if tests pass.
+
+5. Run the command `npm run unit:test:solution` at root of folder to see the solution output.
 
 ## Integration Testing
 
@@ -39,29 +43,41 @@ Integration Testing is a level of software testing where individual units are co
 Integration tests ensure that various units work together correctly.
 Introducing dependencies on external modules or data also turns unit tests into integration tests.
 
-`Go to integration-tests folder`
-Read `instructions.md` in the folder integration-tests
-Run the command `npm run integration:test` at root of folder in order to see if tests pass.
-Run the command `npm run integration:test:solution` to see the solution output.
+1. `Go to integration-tests folder`
+
+2. Read `instructions.md` in the folder integration-tests
+
+3. Run the command `npm run integration:test` at root of folder in order to see if tests pass.
+
+4. Run the command `npm run integration:test:solution` to see the solution output.
 
 ## Behavior Driven Development
 
 BDD uses a more verbose style so that it can be read almost like a sentence and some argue that BDD eliminates issues that TDD might cause.
+
 The ability to read your tests like a sentence is a cognitive shift in how you will think about your tests.
+
 The argument is that if you can read your tests fluidly, you will naturally write better and more comprehensive tests.
+
 [Josh Davis Blog Entry](http://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/)
 
-Read `instructions.md` in the folder bdd
-Run the command `npm run bdd:test` at root of folder in order to see if tests pass.
-Run the command `npm run bdd:test:solution` to see the solution output.
+1. Read `instructions.md` in the folder bdd
+
+2. Run the command `npm run bdd:test` at root of folder in order to see if tests pass.
+
+3. Run the command `npm run bdd:test:solution` to see the solution output.
 
 ## Test Driven Development
 
-Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements. [Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development)
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only.
 
-Read `instructions.md` in the folder tdd
-The npm run commands will depend on the tdd cycle you are in but the first thing to do is go to `tdd/tdd-cycle/cycle1`
-All the commands can be found in instructions.md
+This is opposed to software development that allows software to be added that is not proven to meet requirements. [Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development)
+
+1. Read `instructions.md` in the folder tdd
+
+2. The npm run commands will depend on the tdd cycle you are in but the first thing to do is go to `tdd/tdd-cycle/cycle1`
+
+3. All the commands can be found in instructions.md
 
 
 ## Mocks // Spies // Stubs
@@ -85,9 +101,11 @@ All the commands can be found in instructions.md
 * The following simplified example shows how to use spies to test how a function handles a callback
 * [Spies](http://sinonjs.org/docs/#spies)
 
-Read `instructions.md` in the folder mock-stubs-spies
-Run the commands `npm run mock:sinon` to write tests in mocha and chai
-Run the commands `npm run mock:sinon:tape` to write tests in tape.js and should.js if you like
+1. Read `instructions.md` in the folder mock-stubs-spies
+
+2. Run the commands `npm run mock:sinon` to write tests in mocha and chai
+
+3. Run the commands `npm run mock:sinon:tape` to write tests in tape.js and should.js if you like
 
 ## End-to-End Tests
 
