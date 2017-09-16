@@ -9,9 +9,13 @@ This meetup event gives an introduction to unit testing, integration testing,
 and end-to-end-testing. We will also go over Mocks, Stubs, and Spies.
 
 ## Setup instructions
-### 1. Install Docker via [Docker](https://docs.docker.com/engine/installation/)
-### 3. Run `docker-compose build` on root level of folder.
-### 4. Run `docker-compose up -d` to start application
+###### 1. Install Docker via [Docker](https://docs.docker.com/engine/installation/)
+###### 3. Run `docker-compose build` on root level of folder.
+###### 4. Run `docker-compose up -d` to start application
+###### 5. Run `mkdir ca` to create certificate authority folder
+###### 6. Run `openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365` to generate key and cert files
+###### 7. Run `mv *.pem ca` to move your certificates to `ca` folder
+###### 8. Run `openssl rsa -in ca/key.pem -out ca/newkey.pem && mv ca/newkey.pem ca/key.pem` with passphrase you gave when you generated the certificates.
 
 ## Assignments
 
