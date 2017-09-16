@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "unit:test": "NODE_ENV=testing tape unit-test/program.test.js",
-    "unit:test:solution": "NODE_ENV=testing tape unit-test/solution/program.test.js",
+    "unit:test:solution": "NODE_ENV=testing nyc tape unit-test/solution/program.test.js",
     "integration:test": "NODE_ENV=testing tape integration-tests/program.test.js",
     "integration:test:solution": "NODE_ENV=testing tape integration-tests/solution/program.test.js",
     "end:to:end:test": "node end-to-end-tests/nightwatch.runner.js",

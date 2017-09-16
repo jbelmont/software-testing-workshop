@@ -1,4 +1,4 @@
-# Code Craftsmanship Saturdays Fourth Session
+# Code Craftsmanship Saturdays Software Testing Session
 
 [![Build Status](https://travis-ci.org/jbelmont/software-testing.svg?branch=master)](https://travis-ci.org/jbelmont/software-testing)
 [![Coverage Status](https://coveralls.io/repos/github/jbelmont/software-testing/badge.svg?branch=master)](https://coveralls.io/github/jbelmont/software-testing?branch=master)
