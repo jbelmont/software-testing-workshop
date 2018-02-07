@@ -20,7 +20,7 @@ nest.test('Unit test the map function', assert => {
 });
 ```
 
-####For a typical unit test I usually create 2 variables one named actual and another named expect
+#### For a typical unit test I usually create 2 variables one named actual and another named expect
 *For `assert.equal(actual, expected, 'My message here')` if actual and expected are equal then the unit test will pass.*
 
 The map function behaves in the following manner
