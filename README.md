@@ -1,6 +1,6 @@
 # Code Craftsmanship Saturdays Software Testing Session
 
-[![Build Status](https://travis-ci.org/jbelmont/software-testing.svg?branch=master)](https://travis-ci.org/jbelmont/software-testing)
+[![Build Status](https://travis-ci.org/jbelmont/software-testing-workshop.svg?branch=master)](https://travis-ci.org/jbelmont/software-testing-workshop)
 [![Coverage Status](https://coveralls.io/repos/github/jbelmont/software-testing/badge.svg?branch=master)](https://coveralls.io/github/jbelmont/software-testing?branch=master)
 
 To view lecture notes for this course, please consult the [github-pages](https://jbelmont.github.io/software-testing).
