@@ -1,0 +1,500 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>End to End Testing · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../mocking/mocking.html" />
+    
+    
+    <link rel="prev" href="../bdd/bdd.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../unit/unit.html">
+            
+                <a href="../unit/unit.html">
+            
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../integration/integration.html">
+            
+                <a href="../integration/integration.html">
+            
+                    
+                    Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../tdd/tdd.html">
+            
+                <a href="../tdd/tdd.html">
+            
+                    
+                    TDD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../bdd/bdd.html">
+            
+                <a href="../bdd/bdd.html">
+            
+                    
+                    BDD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="e2e.html">
+            
+                <a href="e2e.html">
+            
+                    
+                    End to End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../mocking/mocking.html">
+            
+                <a href="../mocking/mocking.html">
+            
+                    
+                    Mocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../fixtures/fixtures.html">
+            
+                <a href="../fixtures/fixtures.html">
+            
+                    
+                    Test Fixtures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../property/property.html">
+            
+                <a href="../property/property.html">
+            
+                    
+                    Property Based Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >End to End Testing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="end-to-end-tests">End-to-End Tests</h2>
+<p>To view lecture notes for this course, please consult the <a href="https://jbelmont.github.io/software-testing" target="_blank">github-pages</a>.</p>
+<h4 id="definition-of-end-to-end-tests-via-infoq-end-to-end-testing">Definition of End-to-End Tests via InfoQ <a href="https://www.infoq.com/articles/balancing-unit-and-end-to-end-tests" target="_blank">End-To-End-Testing</a></h4>
+<p>End-to-End Tests simulate user behavior. In a web application, they will start the server, fire up a browser, click around, and assert that certain things happening in the browser give us confidence our feature is working. These tests give great confidence, but they are slow, brittle, and tightly coupled to the user interface.</p>
+<h4 id="nightwatchjs-end-to-end-testing-library">Nightwatchjs End to End Testing Library</h4>
+<ul>
+<li>Nightwatch.js is a Node.js based End-to-End (E2E) testing solution for browser based apps and websites.</li>
+<li>It uses the powerful W3C WebDriver API to perform commands and assertions on DOM elements.</li>
+<li>Write End-to-End tests in Node.js quickly and effortlessly that run against a Selenium/WebDriver server.</li>
+</ul>
+<h4 id="webdriver">WebDriver</h4>
+<ul>
+<li>WebDriver is a general purpose library for automating web browsers.</li>
+<li><p>It was started as part of the Selenium project, which is a very popular and comprehensive set of tools for browser automation, initially written for Java but now with support for most programming languages.</p>
+</li>
+<li><p>Nightwatch uses the WebDriver API to perform the browser automation related tasks</p>
+<ul>
+<li>I.E. opening windows and clicking links for instance.</li>
+</ul>
+</li>
+<li><p>WebDriver is now a W3C specification, which aims to standardize browser automation.</p>
+</li>
+<li>WebDriver is a remote control interface that enables introspection and control of user agents.</li>
+<li>It provides a platform and a restful HTTP api as a way for web browsers to be remotely controlled.</li>
+</ul>
+<p><a href="https://www.w3.org/TR/webdriver/" target="_blank">WebDriver Spec</a></p>
+<ul>
+<li>Nightwatch works by communicating over a restful HTTP api with a WebDriver server (Selenium server).</li>
+<li>The restful API protocol is defined by the W3C WebDriver API.</li>
+</ul>
+<h4 id="nightwatch-operations">Nightwatch Operations</h4>
+<ul>
+<li>Nightwatch needs to send at least 2 requests to the WebDriver server in order to perform a command or assertion<ul>
+<li>The first request to locate an element given a CSS selector (or Xpath expression)</li>
+<li>The second request to perform the actual command/assertion on the given element.</li>
+</ul>
+</li>
+</ul>
+<pre class="language-"><code class="lang-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">&apos;Code Craftsmanship Saturdays&apos;</span><span class="token operator">:</span> <span class="token parameter">browser</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    browser
+      <span class="token punctuation">.</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">&apos;http://localhost:3000&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">waitForElementVisible</span><span class="token punctuation">(</span><span class="token string">&apos;.code-craftsmanship-container-label&apos;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>assert<span class="token punctuation">.</span><span class="token function">containsText</span><span class="token punctuation">(</span><span class="token string">&apos;.code-craftsmanship-container-label &gt; strong&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Code Craftsmanship Saturdays&apos;</span><span class="token punctuation">)</span>
+
+    browser
+      <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;.users-container .users-container-trash-bin&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>assert<span class="token punctuation">.</span><span class="token function">elementNotPresent</span><span class="token punctuation">(</span><span class="token string">&apos;[data-email=&quot;tcox0@dion.ne.jp&quot;]&apos;</span><span class="token punctuation">)</span>
+
+    browser
+      <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;#addSomeUserBtn&apos;</span><span class="token punctuation">)</span>
+
+    <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#emailInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;chuck@badass.net&apos;</span><span class="token punctuation">)</span>
+    <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#firstNameInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Chuck&apos;</span><span class="token punctuation">)</span>
+    <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#lastNameInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Norris&apos;</span><span class="token punctuation">)</span>
+
+    browser
+      <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;#addUserSubmit&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">waitForElementVisible</span><span class="token punctuation">(</span><span class="token string">&apos;[data-email=&quot;chuck@badass.net&quot;]&apos;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token parameter">input<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      browser<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Above is a sample End To End Test for Nightwatch.js</p>
+<p>The string <code>Code Craftsmanship Saturdays</code> will be what this particular test suite will be called.</p>
+<p>Notice that it lives in an <code>module.exports</code> object</p>
+<p>The <code>browser</code> object has the main elements you will need for your test namely <code>click</code>,  <code>url</code>, and <code>assertions</code></p>
+<p>Since I only put one key there is one step to this test, I could however split this test into two parts like so</p>
+<pre class="language-"><code class="lang-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">&apos;Load Default Screen and click trash can&apos;</span><span class="token operator">:</span> <span class="token parameter">browser</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    browser
+      <span class="token punctuation">.</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">&apos;http://localhost:3000&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">waitForElementVisible</span><span class="token punctuation">(</span><span class="token string">&apos;.code-craftsmanship-container-label&apos;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>assert<span class="token punctuation">.</span><span class="token function">containsText</span><span class="token punctuation">(</span><span class="token string">&apos;.code-craftsmanship-container-label &gt; strong&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Code Craftsmanship Saturdays&apos;</span><span class="token punctuation">)</span>
+
+    browser
+      <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;.users-container .users-container-trash-bin&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>assert<span class="token punctuation">.</span><span class="token function">elementNotPresent</span><span class="token punctuation">(</span><span class="token string">&apos;[data-email=&quot;tcox0@dion.ne.jp&quot;]&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token string">&apos;Add a User&apos;</span><span class="token operator">:</span> <span class="token parameter">browser</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      browser
+        <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;#addSomeUserBtn&apos;</span><span class="token punctuation">)</span>
+
+        <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#emailInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;chuck@badass.net&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#firstNameInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Chuck&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token string">&apos;#lastNameInput&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Norris&apos;</span><span class="token punctuation">)</span>
+
+        browser
+        <span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token string">&apos;#addUserSubmit&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">waitForElementVisible</span><span class="token punctuation">(</span><span class="token string">&apos;[data-email=&quot;chuck@badass.net&quot;]&apos;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">setInput</span><span class="token punctuation">(</span><span class="token parameter">input<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            browser<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Here the End to End test has been broken into 2 steps, I could break it up further if I wanted.</p>
+<p><code>Nightwatch.js</code> also has lifecycle methods that you can use</p>
+<pre class="language-"><code class="lang-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">before</span> <span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Setting up...&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function-variable function">after</span> <span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Closing down...&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function-variable function">beforeEach</span> <span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function-variable function">afterEach</span> <span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token string">&apos;step one&apos;</span> <span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    browser
+     <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token string">&apos;step two&apos;</span> <span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">browser</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    browser
+    <span class="token comment">// ...</span>
+      <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The goal of End to End tests are to test the behavior of your application</p>
+<p>One thing to keep in mind is that you should not be testing edge cases with your end to end tests.</p>
+<p>Some metrics to think about:</p>
+<ol>
+<li>You should have many unit tests that test all the possible edge cases for each function/class.</li>
+<li>Your integration tests will consequently test multiple units of work and you should have a good number of them.</li>
+<li>End to End tests should really follow the happy path of a user workflow.<ol>
+<li>These types of tests are more resource intensive and you should think about separating end to end tests to an additional build.</li>
+<li>Keep your first build fast by only incorporating Unit Tests</li>
+<li>Perhaps include a secondary build where you run integration tests and end to end tests.</li>
+</ol>
+</li>
+</ol>
+<p>Instructions for End To End Exercises:</p>
+<ol>
+<li>Go to end to end tests folder <code>cd end-to-end-tests/nightwatch</code></li>
+<li>Open codeCraftsmanshipSaturdays.js.</li>
+<li>Complete each todo block by adding the last part of the end to end test.</li>
+<li>Run the script <code>npm run end:to:end:test</code></li>
+</ol>
+<p><a href="http://nightwatchjs.org/api" target="_blank">NightWatch Docs</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../bdd/bdd.html" class="navigation navigation-prev " aria-label="Previous page: BDD">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../mocking/mocking.html" class="navigation navigation-next " aria-label="Next page: Mocking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"End to End Testing","level":"1.6","depth":1,"next":{"title":"Mocking","level":"1.7","depth":1,"path":"docs/mocking/mocking.md","ref":"docs/mocking/mocking.md","articles":[]},"previous":{"title":"BDD","level":"1.5","depth":1,"path":"docs/bdd/bdd.md","ref":"docs/bdd/bdd.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button"],"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/e2e/e2e.md","mtime":"2020-05-18T15:18:16.851Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-18T20:30:18.366Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

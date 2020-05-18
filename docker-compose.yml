@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  test:
+    image: mhart/alpine-node:7.9.0
+    working_dir: /var/www/app
+    volumes:
+      - .:/var/www/app
+    environment:
+      NODE_ENV: testing
+    command:
+      /bin/sh -c "./node_modules/.bin/nyc ./node_modules/.bin/tape tdd/solution/tdd-cycle/cyclefinal/program.test.js unit-test/solution/program.test.js"
+  db:
+    image: couchdb:1.6.1
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: password
+    ports:
+      - "5984:5984"
+  e2e:
+    build: .
+    command:
+      /bin/sh -c "node end-to-end-tests/nightwatch.runner.js"

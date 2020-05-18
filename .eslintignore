@@ -1,0 +1,3 @@
+build/*.js
+config/*.js
+end-to-end-tests/nightwatch.conf.js
